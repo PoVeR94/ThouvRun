@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thouv'Run - Scores Globaux</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            animation: slideDown 0.6s ease;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .controls {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: slideUp 0.6s ease;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .search-bar input {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 15px;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            border-color: #764ba2;
+            box-shadow: 0 0 10px rgba(118, 75, 162, 0.3);
+        }
+
+        .sort-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+        }
+
+        .btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .stat-card .value {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .scores-table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: fadeIn 0.6s ease;
+        }
+
+        .table-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 80px 1fr 120px 120px 120px 100px;
+            gap: 15px;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+        }
+
+        .table-row {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 80px 1fr 120px 120px 120px 100px;
+            gap: 15px;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .table-row:hover {
+            background: #f8f9ff;
+            padding-left: 25px;
+        }
+
+        .rank {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.3em;
+        }
+
+        .rank.gold { color: #FFD700; }
+        .rank.silver { color: #C0C0C0; }
+        .rank.bronze { color: #CD7F32; }
+
+        .player-name {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .points {
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .distance {
+            color: #666;
+        }
+
+        .bedos {
+            color: #666;
+        }
+
+        .date {
+            font-size: 0.9em;
+            color: #999;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .difficulty.normal {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .difficulty.difficile {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .no-results p {
+            font-size: 1.2em;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        .spinner {
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .responsive-note {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 0.9em;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            
+            .table-header,
+            .table-row {
+                grid-template-columns: 60px 1fr 100px 80px;
+                gap: 10px;
+            }
+
+            .bedos,
+            .date { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Thouv'Run</h1>
+            <p>Classement Global des Scores</p>
+        </header>
+
+        <div class="controls">
+            <div class="search-bar">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Cherche un joueur..."
+                    autocomplete="off"
+                >
+            </div>
+
+            <div class="sort-buttons">
+                <button class="btn active" data-sort="points">📊 Points</button>
+                <button class="btn" data-sort="distance">🏃 Distance</button>
+                <button class="btn" data-sort="bedos">🚬 Bedos</button>
+                <button class="btn" data-sort="date">🕐 Récent</button>
+            </div>
+
+            <div class="stats" id="stats">
+                <div class="stat-card">
+                    <h3>Total Parties</h3>
+                    <div class="value" id="totalGames">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Meilleur Score</h3>
+                    <div class="value" id="bestScore">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Joueurs</h3>
+                    <div class="value" id="playerCount">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Rechargé</h3>
+                    <div class="value" id="lastUpdate">-</div>
+                </div>
+            </div>
+
+            <div class="responsive-note">
+                💡 La page se met à jour automatiquement chaque 10 secondes
+            </div>
+        </div>
+
+        <div class="scores-table">
+            <div class="table-header">
+                <div>Rang</div>
+                <div>Joueur</div>
+                <div>Points</div>
+                <div>Distance</div>
+                <div>Bedos</div>
+                <div>Date</div>
+            </div>
+            <div id="scoresContainer">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    Chargement des scores...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let allScores = [];
+        let currentSort = 'points';
+        let currentSearch = '';
+
+        async function loadScores() {
+            try {
+                // Essayer de charger depuis une API locale d'abord
+                try {
+                    const response = await fetch('/api/scores');
+                    if (response.ok) {
+                        allScores = await response.json();
+                        return;
+                    }
+                } catch (e) {}
+
+                // Fallback: charger depuis le fichier JSON directement
+                const response = await fetch('./data/thouv_scores.json');
+                if (!response.ok) throw new Error('Fichier non trouvé');
+                
+                allScores = await response.json();
+            } catch (error) {
+                console.error('Erreur lors du chargement:', error);
+                document.getElementById('scoresContainer').innerHTML = `
+                    <div class="no-results">
+                        <p>⚠️ Impossible de charger les scores</p>
+                        <p style="font-size: 0.9em; margin-top: 10px;">Assurez-vous que le fichier data/thouv_scores.json existe</p>
+                    </div>
+                `;
+            }
+        }
+
+        function filterAndSort() {
+            let filtered = allScores;
+
+            // Filtre par recherche
+            if (currentSearch.trim()) {
+                filtered = filtered.filter(score => 
+                    score.nom.toLowerCase().includes(currentSearch.toLowerCase())
+                );
+            }
+
+            // Tri
+            const sortedScores = [...filtered];
+            switch(currentSort) {
+                case 'points':
+                    sortedScores.sort((a, b) => b.score_total - a.score_total);
+                    break;
+                case 'distance':
+                    sortedScores.sort((a, b) => b.distance - a.distance);
+                    break;
+                case 'bedos':
+                    sortedScores.sort((a, b) => b.bedos - a.bedos);
+                    break;
+                case 'date':
+                    sortedScores.sort((a, b) => new Date(b.date) - new Date(a.date));
+                    break;
+            }
+
+            return sortedScores;
+        }
+
+        function renderScores() {
+            const sorted = filterAndSort();
+            const container = document.getElementById('scoresContainer');
+
+            if (sorted.length === 0) {
+                container.innerHTML = `
+                    <div class="no-results">
+                        <p>Aucun résultat trouvé</p>
+                    </div>
+                `;
+                updateStats(allScores);
+                return;
+            }
+
+            let html = sorted.map((score, index) => {
+                const difficulty = score.difficulte || 'NORMALE';
+                const diffClass = difficulty === 'DIFFICILE' ? 'difficile' : 'normal';
+                const diffText = difficulty === 'DIFFICILE' ? 'DIFFICILE' : 'NORMAL';
+                
+                let rankClass = '';
+                if (index === 0) rankClass = 'gold';
+                else if (index === 1) rankClass = 'silver';
+                else if (index === 2) rankClass = 'bronze';
+
+                return `
+                    <div class="table-row">
+                        <div class="rank ${rankClass}">${index + 1}</div>
+                        <div class="player-name">${escapeHtml(score.nom)}</div>
+                        <div class="points">${score.score_total} pts</div>
+                        <div class="distance">${score.distance}m</div>
+                        <div class="bedos">${score.bedos} 🚬</div>
+                        <div class="date">${score.date}</div>
+                    </div>
+                `;
+            }).join('');
+
+            container.innerHTML = html;
+            updateStats(allScores);
+            updateLastRefresh();
+        }
+
+        function updateStats(scores) {
+            if (scores.length === 0) return;
+
+            const totalGames = scores.length;
+            const bestScore = Math.max(...scores.map(s => s.score_total));
+            const playerCount = new Set(scores.map(s => s.nom)).size;
+
+            document.getElementById('totalGames').textContent = totalGames;
+            document.getElementById('bestScore').textContent = bestScore;
+            document.getElementById('playerCount').textContent = playerCount;
+        }
+
+        function updateLastRefresh() {
+            const now = new Date();
+            const time = now.toLocaleTimeString('fr-FR');
+            document.getElementById('lastUpdate').textContent = time;
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Event listeners
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            currentSearch = e.target.value;
+            renderScores();
+        });
+
+        document.querySelectorAll('[data-sort]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('[data-sort]').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                currentSort = e.target.dataset.sort;
+                renderScores();
+            });
+        });
+
+        // Charger les scores au démarrage
+        loadScores();
+        renderScores();
+
+        // Auto-refresh toutes les 10 secondes
+        setInterval(() => {
+            loadScores();
+            renderScores();
+        }, 10000);
+    </script>
+</body>
+</html>

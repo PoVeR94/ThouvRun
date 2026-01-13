@@ -1,0 +1,55 @@
+# Dossiers Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Dossiers de compilation PyInstaller
+build/
+dist/
+*.spec
+*.exe
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Système
+.DS_Store
+Thumbs.db
+*.log
+*.bak
+
+# Données sensibles / Local dev
+last_player.txt
+*.db
+*.sqlite
+
+# Test temporaires
+test_*.json
+__pycache__/
+
+# Environnement local
+.env
+.env.local
+
+# Logs et caches
+*.log
+.pytest_cache/
+.coverage
+htmlcov/
+
+# OS
+.directory
