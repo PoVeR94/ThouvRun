@@ -1,5 +1,4 @@
-pygame==2.6.1
-windows-curses==2.4.1
+# Production (Render Server) - pas de dépendances Windows
 flask==3.0.0
 flask-cors==4.0.0
 requests==2.31.0
