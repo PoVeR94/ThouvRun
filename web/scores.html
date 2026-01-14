@@ -42,11 +42,13 @@
             pointer-events: none;
             z-index: 0;
             animation: weedsDiagonal 6s linear infinite;
+            transform: rotate(45deg);
+            transform-origin: 0 0;
         }
 
         @keyframes weedsDiagonal {
             0% { background-position: 0 0; }
-            100% { background-position: 100px 100px; }
+            100% { background-position: 100px -100px; }
         }
 
         /* Semi-transparent overlay on weeds */
