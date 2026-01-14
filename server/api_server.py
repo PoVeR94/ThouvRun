@@ -22,12 +22,12 @@ app = Flask(__name__)
 CORS(app)
 
 # Configuration
-DATABASE = os.environ.get('DATABASE_PATH', 'data/scores.db')
+DATABASE = os.environ.get('DATABASE_PATH', '../data/scores.db')
 SCORES_BACKUP = os.path.join(os.path.dirname(DATABASE), 'server_scores.json')
 API_PORT = int(os.environ.get('PORT', 5000))
 
 # Créer le dossier data s'il n'existe pas
-os.makedirs('data', exist_ok=True)
+os.makedirs(os.path.dirname(DATABASE), exist_ok=True)
 
 def init_db():
     """Initialiser la base de données"""
@@ -267,8 +267,9 @@ def get_player_stats(nom):
 def serve_leaderboard():
     """Sert la page HTML du leaderboard"""
     try:
-        if os.path.exists('scores.html'):
-            with open('scores.html', 'r', encoding='utf-8') as f:
+        leaderboard_path = os.path.join(os.path.dirname(__file__), '..', 'web', 'scores.html')
+        if os.path.exists(leaderboard_path):
+            with open(leaderboard_path, 'r', encoding='utf-8') as f:
                 return f.read(), 200, {'Content-Type': 'text/html; charset=utf-8'}
         else:
             return "scores.html non trouvé", 404

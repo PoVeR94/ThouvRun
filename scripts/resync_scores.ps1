@@ -1,5 +1,5 @@
 $API_URL = "https://thouvrun-production.up.railway.app/api/scores"
-$SCORES_FILE = "$(Split-Path -Parent $PSCommandPath)\data\thouv_scores.json"
+$SCORES_FILE = "$(Split-Path -Parent (Split-Path -Parent $PSCommandPath))\data\thouv_scores.json"
 
 Write-Host "Chargement des scores..."
 $scores = Get-Content $SCORES_FILE -Encoding UTF8 | ConvertFrom-Json

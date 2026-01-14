@@ -1,14 +1,14 @@
 @echo off
 REM ========================================
-REM Thouv'Run - Jeu Graphique (Pygame)
+REM Thouv'Run - Jeu Terminal (Curses)
 REM ========================================
 
 setlocal enabledelayedexpansion
 
-cd /d "%~dp0"
+cd /d "%~dp0.."
 
 REM Verifier que les dependances sont installees
-python -c "import pygame, requests, flask" >nul 2>&1
+python -c "import windows_curses, requests, flask" >nul 2>&1
 
 if errorlevel 1 (
     echo.
@@ -16,7 +16,7 @@ if errorlevel 1 (
     echo.
     echo Lancement du SETUP...
     echo.
-    call SETUP.bat
+    call scripts\SETUP.bat
     if errorlevel 1 (
         echo Installation echouee. Impossible de demarrer le jeu.
         pause
@@ -24,22 +24,21 @@ if errorlevel 1 (
     )
 )
 
-REM Lancer le jeu graphique
+REM Lancer le jeu terminal
 echo.
 echo ========================================
-echo   Thouv'Run - Version Graphique
+echo   Thouv'Run - Version Terminal
 echo ========================================
 echo.
 echo Controles:
-echo   SPACE       = Sauter
+echo   Z ou UP     = Sauter
 echo   ESC         = Pause / Retour
 echo   P           = Pause Menu
-echo   F11         = Plein ecran
 echo.
-echo Scores envoyes a: https://www.thouvrun.com
+echo Scores envoyes a: https://thouvrun-production.up.railway.app
 echo.
 
-python src/main_graphique.py
+python src/main_terminal.py
 
 if errorlevel 1 (
     echo.

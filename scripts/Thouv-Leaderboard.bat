@@ -5,7 +5,7 @@ REM ========================================
 
 setlocal enabledelayedexpansion
 
-cd /d "%~dp0"
+cd /d "%~dp0.."
 
 REM Verifier que les dependances sont installees
 python -c "import flask, requests" >nul 2>&1
@@ -16,7 +16,7 @@ if errorlevel 1 (
     echo.
     echo Lancement du SETUP...
     echo.
-    call SETUP.bat
+    call scripts\SETUP.bat
     if errorlevel 1 (
         echo Installation echouee. Impossible de demarrer le serveur.
         pause
@@ -40,10 +40,7 @@ timeout /t 2 /nobreak >nul
 start http://localhost:5000
 
 REM Lancer le serveur API
-python api_server.py
-
-if errorlevel 1 (
-    echo.
+python server/api_server.py
     echo [ERREUR] Le serveur n'a pas pu demarrer
     echo.
     echo Assurez-vous que le port 5000 n'est pas utilise
