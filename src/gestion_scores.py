@@ -15,8 +15,8 @@ FICHIER_DERNIER_JOUEUR = os.path.join(DATA_DIR, "last_player.txt")
 # Pour développement local
 # API_SERVER_URL = "http://localhost:5000/api/scores"
 
-# Pour production: utiliser l'URL Render directe (plus stable que le domaine IONOS)
-API_SERVER_URL = "https://thouvrun.onrender.com/api/scores"  # URL Render stable
+# Pour production: utiliser l'URL Railway (persistant, pas de mise en veille)
+API_SERVER_URL = "https://thouvrun-production.up.railway.app/api/scores"  # URL Railway
 
 API_ENABLED = True  # Set to False to disable API sync
 
