@@ -1,9 +1,10 @@
 """
-THOUV'RUN - Serveur Central Multi-Joueur
+THOUV'RUN - Serveur Central Multi-Joueur avec Stockage Persistant
 Synchronise les scores de tous les joueurs en ligne
 
 Architecture:
 - Base de données SQLite (scores.db)
+- Fichier JSON de sauvegarde (data/server_scores.json) - sauvegarde persistante
 - Chaque joueur envoie son score au serveur
 - Leaderboard web global à https://votre-domaine.com
 - Téléchargement des scores pour tous les joueurs
@@ -13,13 +14,16 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import sqlite3
 import os
+import json
 from datetime import datetime
+import threading
 
 app = Flask(__name__)
 CORS(app)
 
 # Configuration
 DATABASE = os.environ.get('DATABASE_PATH', 'data/scores.db')
+SCORES_BACKUP = os.path.join(os.path.dirname(DATABASE), 'server_scores.json')
 API_PORT = int(os.environ.get('PORT', 5000))
 
 # Créer le dossier data s'il n'existe pas
@@ -45,6 +49,67 @@ def init_db():
         ''')
         conn.commit()
         conn.close()
+        
+        # Charger la sauvegarde si elle existe
+        load_from_backup()
+
+def load_from_backup():
+    """Charger les scores depuis la sauvegarde JSON"""
+    if os.path.exists(SCORES_BACKUP):
+        try:
+            with open(SCORES_BACKUP, 'r', encoding='utf-8') as f:
+                backup_scores = json.load(f)
+            
+            if backup_scores:
+                conn = sqlite3.connect(DATABASE)
+                c = conn.cursor()
+                
+                for score in backup_scores:
+                    c.execute('''
+                        INSERT INTO scores (nom, score_total, distance, bedos, version, difficulte, date)
+                        VALUES (?, ?, ?, ?, ?, ?, ?)
+                    ''', (
+                        score.get('nom'),
+                        int(score.get('score_total', 0)),
+                        int(score.get('distance', 0)),
+                        int(score.get('bedos', 0)),
+                        score.get('version', ''),
+                        score.get('difficulte', 'NORMALE'),
+                        score.get('date', datetime.now().strftime("%d/%m/%Y %H:%M"))
+                    ))
+                
+                conn.commit()
+                conn.close()
+                print(f"[Init] {len(backup_scores)} scores chargés depuis la sauvegarde JSON")
+        except Exception as e:
+            print(f"[Init] Erreur lors du chargement de la sauvegarde: {e}")
+
+def save_to_backup():
+    """Sauvegarder les scores dans un fichier JSON pour persistance"""
+    try:
+        conn = sqlite3.connect(DATABASE)
+        c = conn.cursor()
+        c.execute('SELECT nom, score_total, distance, bedos, version, difficulte, date FROM scores')
+        rows = c.fetchall()
+        conn.close()
+        
+        # Convertir en dictionnaire
+        scores = []
+        for row in rows:
+            scores.append({
+                'nom': row[0],
+                'score_total': row[1],
+                'distance': row[2],
+                'bedos': row[3],
+                'version': row[4],
+                'difficulte': row[5],
+                'date': row[6]
+            })
+        
+        with open(SCORES_BACKUP, 'w', encoding='utf-8') as f:
+            json.dump(scores, f, indent=2, ensure_ascii=False)
+    except Exception as e:
+        print(f"[Backup] Erreur: {e}")
 
 def get_db():
     """Retourner une connexion à la base de données"""

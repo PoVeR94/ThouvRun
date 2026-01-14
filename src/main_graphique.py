@@ -11,7 +11,7 @@ from gestion_scores import (
     recuperer_top3_global, 
     recuperer_meilleurs_scores,
     recuperer_dernieres_parties,
-    synchroniser_scores_au_demarrage
+    charger_scores_avec_sync
 )
 
 # --- CHEMINS DES ASSETS ---
@@ -886,9 +886,9 @@ def main():
     hud_best_score_val = 0
     hud_perso_best_val = 0
     
-    # Synchroniser les scores au démarrage (envoyer locaux vers serveur + récupérer distants)
-    print("[Init] Synchronisation des scores au démarrage...")
-    synchroniser_scores_au_demarrage()
+    # Charger les scores au démarrage (local + sync avec serveur)
+    print("[Init] Chargement des scores...")
+    charger_scores_avec_sync()
 
     while running:
         dt = clock.tick(FPS)

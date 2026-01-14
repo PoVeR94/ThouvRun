@@ -9,7 +9,7 @@ from gestion_scores import (
     recuperer_top3_global, 
     recuperer_meilleurs_scores, # AJOUTÉ
     recuperer_dernieres_parties,
-    synchroniser_scores_au_demarrage
+    charger_scores_avec_sync
 )
 
 # --- CONFIGURATION ---
@@ -234,9 +234,9 @@ def lancer_le_jeu(stdscr, h, w, musique_thread):
     # --- MUSIQUE JEU ---
     musique_thread.demarrer_ambiance_jeu()
     
-    # Synchroniser les scores au démarrage
-    print("[Init] Synchronisation des scores...")
-    synchroniser_scores_au_demarrage()
+    # Charger les scores au démarrage (local + sync avec serveur)
+    print("[Init] Chargement des scores...")
+    charger_scores_avec_sync()
 
     stdscr.nodelay(True)
     running = True

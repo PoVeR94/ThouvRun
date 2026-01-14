@@ -4,1543 +4,1789 @@
         "score_total": 146,
         "distance": 96,
         "bedos": 1,
-        "version": "Console (DIFFICILE)",
-        "date": "10/01/2026 00:32"
+        "version": "Console",
+        "date": "10/01/2026 00:32",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "Nig",
         "score_total": 116,
         "distance": 66,
         "bedos": 1,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 00:43"
+        "version": "Console",
+        "date": "10/01/2026 00:43",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Mhddx",
         "score_total": 104,
         "distance": 36,
         "bedos": 1,
-        "version": "Console (DIFFICILE)",
-        "date": "10/01/2026 00:42"
+        "version": "Console",
+        "date": "10/01/2026 00:42",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "Bastieng",
         "score_total": 96,
         "distance": 31,
         "bedos": 1,
-        "version": "Console (DIFFICILE)",
-        "date": "10/01/2026 00:34"
+        "version": "Console",
+        "date": "10/01/2026 00:34",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "Mama",
         "score_total": 57,
         "distance": 38,
         "bedos": 0,
-        "version": "Console (DIFFICILE)",
-        "date": "10/01/2026 00:38"
+        "version": "Console",
+        "date": "10/01/2026 00:38",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "Nigx",
         "score_total": 32,
         "distance": 21,
         "bedos": 0,
-        "version": "Console (DIFFICILE)",
-        "date": "10/01/2026 00:50"
+        "version": "Console",
+        "date": "10/01/2026 00:50",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "Nigx",
         "score_total": 326,
         "distance": 117,
         "bedos": 3,
-        "version": "Console (DIFFICILE)",
-        "date": "10/01/2026 01:01"
+        "version": "Console",
+        "date": "10/01/2026 01:01",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "Nigx",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 01:02"
+        "version": "Console",
+        "date": "10/01/2026 01:02",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Nigx",
         "score_total": 26,
         "distance": 26,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 01:02"
+        "version": "Console",
+        "date": "10/01/2026 01:02",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Nis",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 01:09"
+        "version": "Console",
+        "date": "10/01/2026 01:09",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Nizz",
         "score_total": 134,
         "distance": 84,
         "bedos": 1,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 01:11"
+        "version": "Console",
+        "date": "10/01/2026 01:11",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Nizz",
         "score_total": 47,
         "distance": 47,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 01:58"
+        "version": "Console",
+        "date": "10/01/2026 01:58",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Nizz",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 01:58"
+        "version": "Console",
+        "date": "10/01/2026 01:58",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Nizz",
         "score_total": 94,
         "distance": 44,
         "bedos": 1,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 01:58"
+        "version": "Console",
+        "date": "10/01/2026 01:58",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Nizz",
         "score_total": 35,
         "distance": 35,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 02:01"
+        "version": "Console",
+        "date": "10/01/2026 02:01",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Nizz",
         "score_total": 56,
         "distance": 56,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 02:01"
+        "version": "Console",
+        "date": "10/01/2026 02:01",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Nizz",
         "score_total": 17,
         "distance": 17,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 02:05"
+        "version": "Console",
+        "date": "10/01/2026 02:05",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Nizz",
         "score_total": 17,
         "distance": 17,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 02:10"
+        "version": "Console",
+        "date": "10/01/2026 02:10",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Nizz",
         "score_total": 26,
         "distance": 26,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 02:10"
+        "version": "Console",
+        "date": "10/01/2026 02:10",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Nizz",
         "score_total": 96,
         "distance": 46,
         "bedos": 1,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 02:12"
+        "version": "Console",
+        "date": "10/01/2026 02:12",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Nizz",
         "score_total": 88,
         "distance": 38,
         "bedos": 1,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 02:13"
+        "version": "Console",
+        "date": "10/01/2026 02:13",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Nizz",
         "score_total": 36,
         "distance": 36,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 02:15"
+        "version": "Console",
+        "date": "10/01/2026 02:15",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Nizz",
         "score_total": 36,
         "distance": 36,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 02:18"
+        "version": "Console",
+        "date": "10/01/2026 02:18",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Nizz",
         "score_total": 25,
         "distance": 25,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 02:19"
+        "version": "Console",
+        "date": "10/01/2026 02:19",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Nizz",
         "score_total": 176,
         "distance": 76,
         "bedos": 2,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 02:25"
+        "version": "Console",
+        "date": "10/01/2026 02:25",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Nizz",
         "score_total": 26,
         "distance": 26,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 02:30"
+        "version": "Console",
+        "date": "10/01/2026 02:30",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Nizz",
         "score_total": 167,
         "distance": 117,
         "bedos": 1,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 03:23"
+        "version": "Console",
+        "date": "10/01/2026 03:23",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Nizz",
         "score_total": 40,
         "distance": 26,
         "bedos": 0,
-        "version": "Console (DIFFICILE)",
-        "date": "10/01/2026 03:24"
+        "version": "Console",
+        "date": "10/01/2026 03:24",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "Nizz1",
         "score_total": 184,
         "distance": 134,
         "bedos": 1,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 03:25"
+        "version": "Console",
+        "date": "10/01/2026 03:25",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Faya Ganjah",
         "score_total": 89,
         "distance": 39,
         "bedos": 1,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 12:49"
+        "version": "Console",
+        "date": "10/01/2026 12:49",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Faya Ganjah",
         "score_total": 497,
         "distance": 447,
         "bedos": 1,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 12:52"
+        "version": "Console",
+        "date": "10/01/2026 12:52",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Faya Ganjah",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 13:21"
+        "version": "Console",
+        "date": "10/01/2026 13:21",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Faya Ganjah",
         "score_total": 44,
         "distance": 44,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 13:36"
+        "version": "Console",
+        "date": "10/01/2026 13:36",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Faya Ganjah",
         "score_total": 17,
         "distance": 17,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 13:36"
+        "version": "Console",
+        "date": "10/01/2026 13:36",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "d",
         "score_total": 25,
         "distance": 25,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 13:43"
+        "version": "Console",
+        "date": "10/01/2026 13:43",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "d",
         "score_total": 18,
         "distance": 18,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 13:44"
+        "version": "Console",
+        "date": "10/01/2026 13:44",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "d",
         "score_total": 35,
         "distance": 35,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 13:44"
+        "version": "Console",
+        "date": "10/01/2026 13:44",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 14:46"
+        "version": "Console",
+        "date": "10/01/2026 14:46",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 14:47"
+        "version": "Console",
+        "date": "10/01/2026 14:47",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 56,
         "distance": 56,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 14:47"
+        "version": "Console",
+        "date": "10/01/2026 14:47",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 94,
         "distance": 44,
         "bedos": 1,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 14:47"
+        "version": "Console",
+        "date": "10/01/2026 14:47",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 14:53"
+        "version": "Console",
+        "date": "10/01/2026 14:53",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 14:55"
+        "version": "Console",
+        "date": "10/01/2026 14:55",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 14:55"
+        "version": "Console",
+        "date": "10/01/2026 14:55",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 14:55"
+        "version": "Console",
+        "date": "10/01/2026 14:55",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 14:59"
+        "version": "Console",
+        "date": "10/01/2026 14:59",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 19,
         "distance": 19,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 15:05"
+        "version": "Graphique",
+        "date": "10/01/2026 15:05",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 18,
         "distance": 18,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 15:07"
+        "version": "Graphique",
+        "date": "10/01/2026 15:07",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 166,
         "distance": 166,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 15:07"
+        "version": "Graphique",
+        "date": "10/01/2026 15:07",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 17,
         "distance": 17,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 16:10"
+        "version": "Graphique",
+        "date": "10/01/2026 16:10",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 18,
         "distance": 18,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 16:10"
+        "version": "Graphique",
+        "date": "10/01/2026 16:10",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 270,
         "distance": 220,
         "bedos": 1,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 16:11"
+        "version": "Graphique",
+        "date": "10/01/2026 16:11",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 16:11"
+        "version": "Graphique",
+        "date": "10/01/2026 16:11",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 137,
         "distance": 87,
         "bedos": 1,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 16:12"
+        "version": "Graphique",
+        "date": "10/01/2026 16:12",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 323,
         "distance": 173,
         "bedos": 3,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 16:13"
+        "version": "Graphique",
+        "date": "10/01/2026 16:13",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 18,
         "distance": 18,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 16:18"
+        "version": "Graphique",
+        "date": "10/01/2026 16:18",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 142,
         "distance": 92,
         "bedos": 1,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 16:19"
+        "version": "Graphique",
+        "date": "10/01/2026 16:19",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 38,
         "distance": 38,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 16:29"
+        "version": "Graphique",
+        "date": "10/01/2026 16:29",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 35,
         "distance": 35,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 16:29"
+        "version": "Graphique",
+        "date": "10/01/2026 16:29",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 16:29"
+        "version": "Graphique",
+        "date": "10/01/2026 16:29",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 17,
         "distance": 17,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 16:29"
+        "version": "Graphique",
+        "date": "10/01/2026 16:29",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 137,
         "distance": 87,
         "bedos": 1,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 16:30"
+        "version": "Graphique",
+        "date": "10/01/2026 16:30",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 16:30"
+        "version": "Graphique",
+        "date": "10/01/2026 16:30",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 661,
         "distance": 361,
         "bedos": 6,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 16:31"
+        "version": "Graphique",
+        "date": "10/01/2026 16:31",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 86,
         "distance": 86,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 16:35"
+        "version": "Graphique",
+        "date": "10/01/2026 16:35",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 27,
         "distance": 27,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 16:36"
+        "version": "Graphique",
+        "date": "10/01/2026 16:36",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 26,
         "distance": 26,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 16:36"
+        "version": "Graphique",
+        "date": "10/01/2026 16:36",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 115,
         "distance": 65,
         "bedos": 1,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 16:36"
+        "version": "Graphique",
+        "date": "10/01/2026 16:36",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 185,
         "distance": 135,
         "bedos": 1,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 16:37"
+        "version": "Graphique",
+        "date": "10/01/2026 16:37",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 19,
         "distance": 19,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 16:37"
+        "version": "Graphique",
+        "date": "10/01/2026 16:37",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 55,
         "distance": 55,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 16:39"
+        "version": "Graphique",
+        "date": "10/01/2026 16:39",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 27,
         "distance": 27,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 16:41"
+        "version": "Graphique",
+        "date": "10/01/2026 16:41",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 75,
         "distance": 75,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 16:41"
+        "version": "Graphique",
+        "date": "10/01/2026 16:41",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 64,
         "distance": 64,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 16:44"
+        "version": "Graphique",
+        "date": "10/01/2026 16:44",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 93,
         "distance": 93,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 16:47"
+        "version": "Graphique",
+        "date": "10/01/2026 16:47",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing ds",
         "score_total": 424,
         "distance": 324,
         "bedos": 2,
-        "version": "Console (NORMALE)",
-        "date": "10/01/2026 16:49"
+        "version": "Console",
+        "date": "10/01/2026 16:49",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing ds",
         "score_total": 116,
         "distance": 116,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 17:45"
+        "version": "Graphique",
+        "date": "10/01/2026 17:45",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing ds",
         "score_total": 350,
         "distance": 350,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 17:47"
+        "version": "Graphique",
+        "date": "10/01/2026 17:47",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing ds",
         "score_total": 116,
         "distance": 66,
         "bedos": 1,
-        "version": "Graphique (NORMALE)",
-        "date": "10/01/2026 17:47"
+        "version": "Graphique",
+        "date": "10/01/2026 17:47",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing ds",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 12:13"
+        "version": "Graphique",
+        "date": "11/01/2026 12:13",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing ds",
         "score_total": 37,
         "distance": 37,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 12:13"
+        "version": "Graphique",
+        "date": "11/01/2026 12:13",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing ds",
         "score_total": 378,
         "distance": 378,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 12:19"
+        "version": "Graphique",
+        "date": "11/01/2026 12:19",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing ds",
         "score_total": 56,
         "distance": 56,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 12:23"
+        "version": "Graphique",
+        "date": "11/01/2026 12:23",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing ds",
         "score_total": 85,
         "distance": 85,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 12:26"
+        "version": "Graphique",
+        "date": "11/01/2026 12:26",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing ds",
         "score_total": 115,
         "distance": 65,
         "bedos": 1,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 12:26"
+        "version": "Graphique",
+        "date": "11/01/2026 12:26",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing ds",
         "score_total": 76,
         "distance": 26,
         "bedos": 1,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 13:35"
+        "version": "Graphique",
+        "date": "11/01/2026 13:35",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing ds",
         "score_total": 117,
         "distance": 67,
         "bedos": 1,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 13:35"
+        "version": "Graphique",
+        "date": "11/01/2026 13:35",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing ds",
         "score_total": 15,
         "distance": 15,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 15:12"
+        "version": "Graphique",
+        "date": "11/01/2026 15:12",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing ds",
         "score_total": 144,
         "distance": 94,
         "bedos": 1,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 16:37"
+        "version": "Graphique",
+        "date": "11/01/2026 16:37",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing ds",
         "score_total": 208,
         "distance": 108,
         "bedos": 2,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 16:38"
+        "version": "Graphique",
+        "date": "11/01/2026 16:38",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing ds",
         "score_total": 345,
         "distance": 145,
         "bedos": 4,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 16:51"
+        "version": "Graphique",
+        "date": "11/01/2026 16:51",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing ds",
         "score_total": 65,
         "distance": 65,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 16:52"
+        "version": "Graphique",
+        "date": "11/01/2026 16:52",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing ds",
         "score_total": 28,
         "distance": 28,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 16:53"
+        "version": "Graphique",
+        "date": "11/01/2026 16:53",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing ds",
         "score_total": 381,
         "distance": 281,
         "bedos": 2,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 16:53"
+        "version": "Graphique",
+        "date": "11/01/2026 16:53",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing ds",
         "score_total": 644,
         "distance": 444,
         "bedos": 4,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 16:56"
+        "version": "Graphique",
+        "date": "11/01/2026 16:56",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Luyan",
         "score_total": 33,
         "distance": 22,
         "bedos": 0,
-        "version": "Console (DIFFICILE)",
-        "date": "11/01/2026 16:57"
+        "version": "Console",
+        "date": "11/01/2026 16:57",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "Luyan",
         "score_total": 292,
         "distance": 61,
         "bedos": 4,
-        "version": "Console (DIFFICILE)",
-        "date": "11/01/2026 16:58"
+        "version": "Console",
+        "date": "11/01/2026 16:58",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "Luyan",
         "score_total": 66,
         "distance": 44,
         "bedos": 0,
-        "version": "Console (DIFFICILE)",
-        "date": "11/01/2026 16:58"
+        "version": "Console",
+        "date": "11/01/2026 16:58",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "Luyan",
         "score_total": 689,
         "distance": 639,
         "bedos": 1,
-        "version": "Console (NORMALE)",
-        "date": "11/01/2026 17:01"
+        "version": "Console",
+        "date": "11/01/2026 17:01",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Luyan",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 18:57"
+        "version": "Graphique",
+        "date": "11/01/2026 18:57",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Luyan",
         "score_total": 25,
         "distance": 25,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 18:59"
+        "version": "Graphique",
+        "date": "11/01/2026 18:59",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Luyan",
         "score_total": 222,
         "distance": 72,
         "bedos": 3,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 19:00"
+        "version": "Graphique",
+        "date": "11/01/2026 19:00",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Luyan",
         "score_total": 76,
         "distance": 26,
         "bedos": 1,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 21:51"
+        "version": "Graphique",
+        "date": "11/01/2026 21:51",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Luyan",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 21:53"
+        "version": "Graphique",
+        "date": "11/01/2026 21:53",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Luyan",
         "score_total": 235,
         "distance": 185,
         "bedos": 1,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 21:56"
+        "version": "Graphique",
+        "date": "11/01/2026 21:56",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Luyan",
         "score_total": 26,
         "distance": 26,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 21:57"
+        "version": "Graphique",
+        "date": "11/01/2026 21:57",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Luyan",
         "score_total": 751,
         "distance": 401,
         "bedos": 7,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 22:15"
+        "version": "Graphique",
+        "date": "11/01/2026 22:15",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Luyan",
         "score_total": 115,
         "distance": 65,
         "bedos": 1,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 22:16"
+        "version": "Graphique",
+        "date": "11/01/2026 22:16",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Luyan",
         "score_total": 17,
         "distance": 17,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 22:16"
+        "version": "Graphique",
+        "date": "11/01/2026 22:16",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Luyan",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 22:16"
+        "version": "Graphique",
+        "date": "11/01/2026 22:16",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Luyan",
         "score_total": 36,
         "distance": 36,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 22:17"
+        "version": "Graphique",
+        "date": "11/01/2026 22:17",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Luyan",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 22:17"
+        "version": "Graphique",
+        "date": "11/01/2026 22:17",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Luyan",
         "score_total": 335,
         "distance": 235,
         "bedos": 2,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 22:18"
+        "version": "Graphique",
+        "date": "11/01/2026 22:18",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Luyan",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 22:18"
+        "version": "Graphique",
+        "date": "11/01/2026 22:18",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Luyan",
         "score_total": 296,
         "distance": 246,
         "bedos": 1,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 22:19"
+        "version": "Graphique",
+        "date": "11/01/2026 22:19",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Anton",
         "score_total": 25,
         "distance": 17,
         "bedos": 0,
-        "version": "Console (DIFFICILE)",
-        "date": "11/01/2026 22:21"
+        "version": "Console",
+        "date": "11/01/2026 22:21",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "Anton",
         "score_total": 33,
         "distance": 22,
         "bedos": 0,
-        "version": "Console (DIFFICILE)",
-        "date": "11/01/2026 22:21"
+        "version": "Console",
+        "date": "11/01/2026 22:21",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "Anton",
         "score_total": 219,
         "distance": 79,
         "bedos": 2,
-        "version": "Console (DIFFICILE)",
-        "date": "11/01/2026 22:22"
+        "version": "Console",
+        "date": "11/01/2026 22:22",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 15,
         "distance": 15,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "11/01/2026 22:23"
+        "version": "Console",
+        "date": "11/01/2026 22:23",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 22:38"
+        "version": "Graphique",
+        "date": "11/01/2026 22:38",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 22:38"
+        "version": "Graphique",
+        "date": "11/01/2026 22:38",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 22:39"
+        "version": "Graphique",
+        "date": "11/01/2026 22:39",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 22:39"
+        "version": "Graphique",
+        "date": "11/01/2026 22:39",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 22:39"
+        "version": "Graphique",
+        "date": "11/01/2026 22:39",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 76,
         "distance": 76,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 22:40"
+        "version": "Graphique",
+        "date": "11/01/2026 22:40",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 17,
         "distance": 17,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 22:40"
+        "version": "Graphique",
+        "date": "11/01/2026 22:40",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 142,
         "distance": 92,
         "bedos": 1,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 22:41"
+        "version": "Graphique",
+        "date": "11/01/2026 22:41",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 22:41"
+        "version": "Graphique",
+        "date": "11/01/2026 22:41",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 114,
         "distance": 114,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 22:41"
+        "version": "Graphique",
+        "date": "11/01/2026 22:41",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 75,
         "distance": 25,
         "bedos": 1,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 23:38"
+        "version": "Graphique",
+        "date": "11/01/2026 23:38",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 248,
         "distance": 198,
         "bedos": 1,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 23:43"
+        "version": "Graphique",
+        "date": "11/01/2026 23:43",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 281,
         "distance": 181,
         "bedos": 2,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 23:44"
+        "version": "Graphique",
+        "date": "11/01/2026 23:44",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 34,
         "distance": 34,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "11/01/2026 23:45"
+        "version": "Console",
+        "date": "11/01/2026 23:45",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Migue ",
         "score_total": 36,
         "distance": 36,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 23:57"
+        "version": "Graphique",
+        "date": "11/01/2026 23:57",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Migue ",
         "score_total": 113,
         "distance": 63,
         "bedos": 1,
-        "version": "Graphique (NORMALE)",
-        "date": "11/01/2026 23:58"
+        "version": "Graphique",
+        "date": "11/01/2026 23:58",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Migue  ",
         "score_total": 160,
         "distance": 73,
         "bedos": 1,
-        "version": "Graphique (DIFFICILE)",
-        "date": "11/01/2026 23:58"
+        "version": "Graphique",
+        "date": "11/01/2026 23:58",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "Migue",
         "score_total": 260,
         "distance": 73,
         "bedos": 3,
-        "version": "Graphique (DIFFICILE)",
-        "date": "11/01/2026 23:59"
+        "version": "Graphique",
+        "date": "11/01/2026 23:59",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 40,
         "distance": 26,
         "bedos": 0,
-        "version": "Graphique (DIFFICILE)",
-        "date": "12/01/2026 00:23"
+        "version": "Graphique",
+        "date": "12/01/2026 00:23",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limi",
         "score_total": 74,
         "distance": 16,
         "bedos": 1,
-        "version": "Graphique (DIFFICILE)",
-        "date": "12/01/2026 00:33"
+        "version": "Graphique",
+        "date": "12/01/2026 00:33",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 19,
         "distance": 19,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "12/01/2026 22:08"
+        "version": "Graphique",
+        "date": "12/01/2026 22:08",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 15,
         "distance": 15,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "12/01/2026 22:34"
+        "version": "Graphique",
+        "date": "12/01/2026 22:34",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 17,
         "distance": 17,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "12/01/2026 22:35"
+        "version": "Graphique",
+        "date": "12/01/2026 22:35",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 17,
         "distance": 17,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "12/01/2026 22:35"
+        "version": "Graphique",
+        "date": "12/01/2026 22:35",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 25,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (DIFFICILE)",
-        "date": "12/01/2026 22:35"
+        "version": "Graphique",
+        "date": "12/01/2026 22:35",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 18,
         "distance": 12,
         "bedos": 0,
-        "version": "Graphique (DIFFICILE)",
-        "date": "12/01/2026 22:35"
+        "version": "Graphique",
+        "date": "12/01/2026 22:35",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 18,
         "distance": 12,
         "bedos": 0,
-        "version": "Graphique (DIFFICILE)",
-        "date": "12/01/2026 22:36"
+        "version": "Graphique",
+        "date": "12/01/2026 22:36",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 17,
         "distance": 11,
         "bedos": 0,
-        "version": "Graphique (DIFFICILE)",
-        "date": "12/01/2026 22:36"
+        "version": "Graphique",
+        "date": "12/01/2026 22:36",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 18,
         "distance": 12,
         "bedos": 0,
-        "version": "Graphique (DIFFICILE)",
-        "date": "12/01/2026 22:36"
+        "version": "Graphique",
+        "date": "12/01/2026 22:36",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 19,
         "distance": 12,
         "bedos": 0,
-        "version": "Graphique (DIFFICILE)",
-        "date": "12/01/2026 22:36"
+        "version": "Graphique",
+        "date": "12/01/2026 22:36",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 92,
         "distance": 28,
         "bedos": 1,
-        "version": "Graphique (DIFFICILE)",
-        "date": "12/01/2026 22:36"
+        "version": "Graphique",
+        "date": "12/01/2026 22:36",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 53,
         "distance": 35,
         "bedos": 0,
-        "version": "Graphique (DIFFICILE)",
-        "date": "12/01/2026 22:37"
+        "version": "Graphique",
+        "date": "12/01/2026 22:37",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 242,
         "distance": 61,
         "bedos": 3,
-        "version": "Graphique (DIFFICILE)",
-        "date": "12/01/2026 22:37"
+        "version": "Graphique",
+        "date": "12/01/2026 22:37",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 113,
         "distance": 42,
         "bedos": 1,
-        "version": "Graphique (DIFFICILE)",
-        "date": "12/01/2026 22:37"
+        "version": "Graphique",
+        "date": "12/01/2026 22:37",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 28,
         "distance": 19,
         "bedos": 0,
-        "version": "Graphique (DIFFICILE)",
-        "date": "12/01/2026 22:37"
+        "version": "Graphique",
+        "date": "12/01/2026 22:37",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 188,
         "distance": 58,
         "bedos": 2,
-        "version": "Graphique (DIFFICILE)",
-        "date": "12/01/2026 22:38"
+        "version": "Graphique",
+        "date": "12/01/2026 22:38",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 25,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (DIFFICILE)",
-        "date": "12/01/2026 22:38"
+        "version": "Graphique",
+        "date": "12/01/2026 22:38",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 25,
         "distance": 17,
         "bedos": 0,
-        "version": "Graphique (DIFFICILE)",
-        "date": "12/01/2026 22:38"
+        "version": "Graphique",
+        "date": "12/01/2026 22:38",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 21,
         "distance": 14,
         "bedos": 0,
-        "version": "Graphique (DIFFICILE)",
-        "date": "12/01/2026 22:38"
+        "version": "Graphique",
+        "date": "12/01/2026 22:38",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 35,
         "distance": 23,
         "bedos": 0,
-        "version": "Graphique (DIFFICILE)",
-        "date": "12/01/2026 22:38"
+        "version": "Graphique",
+        "date": "12/01/2026 22:38",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 189,
         "distance": 59,
         "bedos": 2,
-        "version": "Graphique (DIFFICILE)",
-        "date": "12/01/2026 22:39"
+        "version": "Graphique",
+        "date": "12/01/2026 22:39",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 97,
         "distance": 47,
         "bedos": 1,
-        "version": "Graphique (NORMALE)",
-        "date": "12/01/2026 23:03"
+        "version": "Graphique",
+        "date": "12/01/2026 23:03",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "12/01/2026 23:03"
+        "version": "Graphique",
+        "date": "12/01/2026 23:03",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "13/01/2026 00:10"
+        "version": "Graphique",
+        "date": "13/01/2026 00:10",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 76,
         "distance": 26,
         "bedos": 1,
-        "version": "Graphique (NORMALE)",
-        "date": "13/01/2026 00:11"
+        "version": "Graphique",
+        "date": "13/01/2026 00:11",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 85,
         "distance": 35,
         "bedos": 1,
-        "version": "Graphique (NORMALE)",
-        "date": "13/01/2026 00:14"
+        "version": "Graphique",
+        "date": "13/01/2026 00:14",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 18,
         "distance": 18,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "13/01/2026 00:17"
+        "version": "Graphique",
+        "date": "13/01/2026 00:17",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "13/01/2026 00:18"
+        "version": "Graphique",
+        "date": "13/01/2026 00:18",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 17,
         "distance": 17,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "13/01/2026 00:19"
+        "version": "Graphique",
+        "date": "13/01/2026 00:19",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "13/01/2026 00:19"
+        "version": "Graphique",
+        "date": "13/01/2026 00:19",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "13/01/2026 00:23"
+        "version": "Graphique",
+        "date": "13/01/2026 00:23",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "13/01/2026 00:26"
+        "version": "Graphique",
+        "date": "13/01/2026 00:26",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "13/01/2026 00:29"
+        "version": "Graphique",
+        "date": "13/01/2026 00:29",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "13/01/2026 00:30"
+        "version": "Graphique",
+        "date": "13/01/2026 00:30",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "13/01/2026 00:31"
+        "version": "Graphique",
+        "date": "13/01/2026 00:31",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 17,
         "distance": 17,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "13/01/2026 00:32"
+        "version": "Graphique",
+        "date": "13/01/2026 00:32",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "13/01/2026 00:35"
+        "version": "Graphique",
+        "date": "13/01/2026 00:35",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "13/01/2026 00:40"
+        "version": "Graphique",
+        "date": "13/01/2026 00:40",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 95,
         "distance": 45,
         "bedos": 1,
-        "version": "Graphique (NORMALE)",
-        "date": "13/01/2026 00:44"
+        "version": "Graphique",
+        "date": "13/01/2026 00:44",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 156,
         "distance": 106,
         "bedos": 1,
-        "version": "Graphique (NORMALE)",
-        "date": "13/01/2026 00:45"
+        "version": "Graphique",
+        "date": "13/01/2026 00:45",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "13/01/2026 00:45"
+        "version": "Graphique",
+        "date": "13/01/2026 00:45",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 28,
         "distance": 28,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "13/01/2026 00:49"
+        "version": "Graphique",
+        "date": "13/01/2026 00:49",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 26,
         "distance": 26,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "13/01/2026 00:51"
+        "version": "Graphique",
+        "date": "13/01/2026 00:51",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 22,
         "distance": 14,
         "bedos": 0,
-        "version": "Graphique (DIFFICILE)",
-        "date": "13/01/2026 00:56"
+        "version": "Graphique",
+        "date": "13/01/2026 00:56",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 26,
         "distance": 17,
         "bedos": 0,
-        "version": "Graphique (DIFFICILE)",
-        "date": "13/01/2026 00:56"
+        "version": "Graphique",
+        "date": "13/01/2026 00:56",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 25,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (DIFFICILE)",
-        "date": "13/01/2026 00:56"
+        "version": "Graphique",
+        "date": "13/01/2026 00:56",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 90,
         "distance": 26,
         "bedos": 1,
-        "version": "Graphique (DIFFICILE)",
-        "date": "13/01/2026 00:56"
+        "version": "Graphique",
+        "date": "13/01/2026 00:56",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 132,
         "distance": 21,
         "bedos": 2,
-        "version": "Graphique (DIFFICILE)",
-        "date": "13/01/2026 00:57"
+        "version": "Graphique",
+        "date": "13/01/2026 00:57",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 25,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (DIFFICILE)",
-        "date": "13/01/2026 00:57"
+        "version": "Graphique",
+        "date": "13/01/2026 00:57",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 18,
         "distance": 18,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "13/01/2026 22:48"
+        "version": "Graphique",
+        "date": "13/01/2026 22:48",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 37,
         "distance": 24,
         "bedos": 0,
-        "version": "Graphique (DIFFICILE)",
-        "date": "13/01/2026 23:04"
+        "version": "Graphique",
+        "date": "13/01/2026 23:04",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 18,
         "distance": 12,
         "bedos": 0,
-        "version": "Graphique (DIFFICILE)",
-        "date": "13/01/2026 23:05"
+        "version": "Graphique",
+        "date": "13/01/2026 23:05",
+        "difficulte": "DIFFICILE"
     },
     {
         "nom": "testing limits",
         "score_total": 26,
         "distance": 26,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "13/01/2026 23:06"
+        "version": "Console",
+        "date": "13/01/2026 23:06",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "testing limits",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Console (NORMALE)",
-        "date": "13/01/2026 23:06"
+        "version": "Console",
+        "date": "13/01/2026 23:06",
+        "difficulte": "NORMALE"
+    },
+    {
+        "nom": "Paulito",
+        "score_total": 17,
+        "distance": 17,
+        "bedos": 0,
+        "version": "Graphique",
+        "date": "14/01/2026 01:35",
+        "difficulte": "NORMALE"
+    },
+    {
+        "nom": "Paulito",
+        "score_total": 16,
+        "distance": 16,
+        "bedos": 0,
+        "version": "Graphique",
+        "date": "14/01/2026 01:41",
+        "difficulte": "NORMALE"
+    },
+    {
+        "nom": "Paulito",
+        "score_total": 16,
+        "distance": 16,
+        "bedos": 0,
+        "version": "Graphique",
+        "date": "14/01/2026 01:42",
+        "difficulte": "NORMALE"
+    },
+    {
+        "nom": "Paulito",
+        "score_total": 16,
+        "distance": 16,
+        "bedos": 0,
+        "version": "Graphique",
+        "date": "14/01/2026 01:44",
+        "difficulte": "NORMALE"
+    },
+    {
+        "nom": "Paulito",
+        "score_total": 16,
+        "distance": 16,
+        "bedos": 0,
+        "version": "Graphique",
+        "date": "14/01/2026 01:56",
+        "difficulte": "NORMALE"
+    },
+    {
+        "nom": "Paulito",
+        "score_total": 26,
+        "distance": 26,
+        "bedos": 0,
+        "version": "Graphique (NORMALE)",
+        "date": "14/01/2026 23:02"
     }
 ]

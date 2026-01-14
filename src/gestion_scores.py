@@ -12,107 +12,58 @@ FICHIER_SCORES = os.path.join(DATA_DIR, "thouv_scores.json")
 FICHIER_DERNIER_JOUEUR = os.path.join(DATA_DIR, "last_player.txt")
 
 # --- CONFIGURATION API ---
-# Pour développement local
-# API_SERVER_URL = "http://localhost:5000/api/scores"
-
-# Pour production: utiliser l'URL Railway (persistant, pas de mise en veille)
-API_SERVER_URL = "https://thouvrun-production.up.railway.app/api/scores"  # URL Railway
-
-API_ENABLED = True  # Set to False to disable API sync
+API_SERVER_URL = "https://thouvrun-production.up.railway.app/api/scores"
+API_ENABLED = True
 
 def _envoyer_score_api(donnees_score):
     """
-    Envoie le score à l'API REST en arrière-plan (thread)
-    Cette fonction ne bloque jamais le jeu
+    Envoie un score à l'API (non-bloquant, timeout court)
     """
     if not API_ENABLED:
         return
     
     try:
-        response = requests.post(
-            API_SERVER_URL,
-            json=donnees_score,
-            timeout=5
-        )
-        # On log silencieusement - pas de blocage du jeu
-        if response.status_code != 201 and response.status_code != 200:
-            print(f"[API] Erreur lors de l'envoi du score: {response.status_code}")
-    except requests.exceptions.ConnectionError:
-        # API non disponible (serveur pas lancé) - c'est OK, on continue
-        print("[API] Serveur API non disponible - scores sauvegardés localement")
-    except Exception as e:
-        # Erreur quelconque - on ignore silencieusement
-        print(f"[API] Erreur: {e}")
+        requests.post(API_SERVER_URL, json=donnees_score, timeout=2)
+    except:
+        pass  # Silencieux - le score est toujours sauvegardé localement
 
 def _telecharger_scores_api():
     """
-    Télécharge tous les scores depuis le serveur API
-    Retourne une liste de scores ou [] si erreur
+    Télécharge tous les scores depuis l'API (timeout court)
     """
     if not API_ENABLED:
         return []
     
     try:
-        # Utiliser l'URL GET /api/scores
         api_get_url = API_SERVER_URL.rsplit('/', 1)[0] + "/scores"
-        response = requests.get(api_get_url, timeout=5)
+        response = requests.get(api_get_url + "?limit=500", timeout=3)
         
         if response.status_code == 200:
             return response.json()
-        else:
-            print(f"[API] Erreur lors du téléchargement: {response.status_code}")
-            return []
-    except requests.exceptions.ConnectionError:
-        print("[API] Serveur API non disponible - utilisation des scores locaux")
         return []
-    except Exception as e:
-        print(f"[API] Erreur lors du téléchargement: {e}")
-        return []
+    except:
+        return []  # Silencieux
 
-def synchroniser_scores_au_demarrage():
+def charger_scores_avec_sync():
     """
-    Synchronise les scores au démarrage du jeu:
-    1. Envoie tous les scores locaux vers le serveur
-    2. Récupère les scores du serveur et les fusionne avec les locaux
-    Utilise un thread pour ne pas bloquer le jeu.
+    Charge les scores au démarrage du jeu:
+    1. Charge les scores locaux
+    2. Essaye de télécharger les scores distants (non-bloquant)
+    3. Fusionne les deux (pas de doublons)
     """
-    if not API_ENABLED:
-        return charger_scores()
-    
-    # Charger les scores locaux
     scores_locaux = charger_scores()
     
-    # Envoyer tous les scores locaux au serveur (en thread)
-    if scores_locaux:
-        def envoyer_tous_les_scores():
-            # Envoyer silencieusement tous les scores
-            for score in scores_locaux:
-                try:
-                    requests.post(
-                        API_SERVER_URL,
-                        json=score,
-                        timeout=3  # Timeout court pour ne pas traîner
-                    )
-                except:
-                    pass  # Silencieux
-            
-            print("[Sync] Scores locaux envoyés vers le serveur")
-        
-        thread_sync = threading.Thread(target=envoyer_tous_les_scores, daemon=True)
-        thread_sync.start()
-    
-    # Récupérer les scores du serveur et fusionner (non-bloquant)
+    # Essayer de récupérer les scores distants (timeout court = pas de blocage)
     scores_distants = _telecharger_scores_api()
     
     if not scores_distants:
-        # Pas de scores distants - on retourne les locaux
+        # Si pas de scores distants, utiliser juste les locaux
         return scores_locaux
     
-    # Fusionner: ajouter les scores distants qui ne sont pas déjà locaux
-    scores_fusionnes = scores_locaux.copy()
+    # Fusionner: éviter les doublons
+    scores_finaux = scores_locaux.copy()
     
     for score_distant in scores_distants:
-        # Vérifier si ce score existe déjà localement
         existe = False
         for score_local in scores_locaux:
             if (score_local.get('nom') == score_distant.get('nom') and
@@ -122,17 +73,9 @@ def synchroniser_scores_au_demarrage():
                 break
         
         if not existe:
-            scores_fusionnes.append(score_distant)
+            scores_finaux.append(score_distant)
     
-    # Sauvegarder les scores fusionnés localement
-    if len(scores_distants) > 0:
-        try:
-            with open(FICHIER_SCORES, 'w', encoding='utf-8') as f:
-                json.dump(scores_fusionnes, f, indent=4, ensure_ascii=False)
-        except Exception as e:
-            pass  # Silencieux
-    
-    return scores_fusionnes
+    return scores_finaux
 
 def synchroniser_scores_depuis_serveur():
     """
