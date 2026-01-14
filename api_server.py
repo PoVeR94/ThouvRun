@@ -56,7 +56,7 @@ def get_db():
 def get_scores():
     """Récupère tous les scores (pour le leaderboard web)"""
     try:
-        limit = request.args.get('limit', 100, type=int)
+        limit = request.args.get('limit', 500, type=int)  # Augmenté à 500 (pour supporter 500+ scores)
         offset = request.args.get('offset', 0, type=int)
         
         conn = get_db()

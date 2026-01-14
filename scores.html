@@ -373,7 +373,7 @@
             try {
                 // Essayer de charger depuis une API locale d'abord
                 try {
-                    const response = await fetch('/api/scores');
+                    const response = await fetch('/api/scores?limit=500');  // Demander 500 scores max
                     if (response.ok) {
                         allScores = await response.json();
                         return;
