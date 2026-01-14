@@ -335,6 +335,30 @@ def health():
     """Vérifier que le serveur est actif"""
     return jsonify({'status': 'online', 'timestamp': datetime.now().isoformat()}), 200
 
+@app.route('/api/admin/clean', methods=['POST'])
+def admin_clean():
+    """Endpoint d'admin pour nettoyer les doublons (non documenté)"""
+    try:
+        removed = 0
+        conn = sqlite3.connect(DATABASE)
+        c = conn.cursor()
+        
+        # Supprimer les doublons
+        c.execute('''
+            DELETE FROM scores WHERE rowid NOT IN (
+                SELECT MIN(rowid) FROM scores
+                GROUP BY nom, score_total, distance, bedos, version, difficulte, date
+            )
+        ''')
+        
+        removed = c.rowcount
+        conn.commit()
+        conn.close()
+        
+        return jsonify({'message': f'{removed} doublons supprimés'}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 if __name__ == '__main__':
     # Initialiser la base de données au démarrage
     init_db()
