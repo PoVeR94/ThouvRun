@@ -31,7 +31,9 @@ os.makedirs('data', exist_ok=True)
 
 def init_db():
     """Initialiser la base de données"""
-    if not os.path.exists(DATABASE):
+    db_exists = os.path.exists(DATABASE)
+    
+    if not db_exists:
         conn = sqlite3.connect(DATABASE)
         c = conn.cursor()
         c.execute('''
@@ -49,9 +51,9 @@ def init_db():
         ''')
         conn.commit()
         conn.close()
-        
-        # Charger la sauvegarde si elle existe
-        load_from_backup()
+    
+    # Charger la sauvegarde si elle existe (toujours, même si DB existe)
+    load_from_backup()
 
 def load_from_backup():
     """Charger les scores depuis la sauvegarde JSON"""
@@ -63,6 +65,9 @@ def load_from_backup():
             if backup_scores:
                 conn = sqlite3.connect(DATABASE)
                 c = conn.cursor()
+                
+                # Vider la table (évite les doublons si on recharge plusieurs fois)
+                c.execute('DELETE FROM scores')
                 
                 for score in backup_scores:
                     c.execute('''
@@ -175,6 +180,9 @@ def add_score():
         
         conn.commit()
         conn.close()
+        
+        # Sauvegarder le backup après chaque nouveau score
+        save_to_backup()
         
         return jsonify({'message': 'Score enregistré'}), 201
     
