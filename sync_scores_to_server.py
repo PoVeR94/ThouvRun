@@ -16,7 +16,7 @@ DATA_DIR = os.path.join(BASE_DIR, "data")
 FICHIER_SCORES = os.path.join(DATA_DIR, "thouv_scores.json")
 
 # Configuration
-API_SERVER_URL = "https://thouvrun.onrender.com/api/scores"
+API_SERVER_URL = "https://thouvrun-production.up.railway.app/api/scores"
 
 def charger_scores_locaux():
     """Charge tous les scores du fichier JSON local"""
