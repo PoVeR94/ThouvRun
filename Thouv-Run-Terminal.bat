@@ -1,7 +1,48 @@
 @echo off
-REM Lanceur Thouv'Run - Version Terminal
-REM Lance le jeu en mode terminal
+REM ========================================
+REM Thouv'Run - Jeu Terminal (Curses)
+REM ========================================
+
+setlocal enabledelayedexpansion
 
 cd /d "%~dp0"
-python main_terminal_launcher.py %*
-if errorlevel 1 pause
+
+REM Verifier que les dependances sont installees
+python -c "import windows_curses, requests, flask" >nul 2>&1
+
+if errorlevel 1 (
+    echo.
+    echo [!] Les dependances ne sont pas installees
+    echo.
+    echo Lancement du SETUP...
+    echo.
+    call SETUP.bat
+    if errorlevel 1 (
+        echo Installation echouee. Impossible de demarrer le jeu.
+        pause
+        exit /b 1
+    )
+)
+
+REM Lancer le jeu terminal
+echo.
+echo ========================================
+echo   Thouv'Run - Version Terminal
+echo ========================================
+echo.
+echo Controles:
+echo   Z ou UP     = Sauter
+echo   ESC         = Pause / Retour
+echo   P           = Pause Menu
+echo.
+echo Scores envoyes a: https://www.thouvrun.com
+echo.
+
+python src/main_terminal.py
+
+if errorlevel 1 (
+    echo.
+    echo [ERREUR] Le jeu n'a pas pu demarrer
+    echo.
+    pause
+)
