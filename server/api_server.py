@@ -10,7 +10,7 @@ Architecture:
 - Téléchargement des scores pour tous les joueurs
 """
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import sqlite3
 import os
@@ -18,13 +18,18 @@ import json
 from datetime import datetime
 import threading
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../assets', static_url_path='/assets')
 CORS(app)
 
 # Configuration
 DATABASE = os.environ.get('DATABASE_PATH', '../data/scores.db')
-SCORES_BACKUP = os.path.join(os.path.dirname(DATABASE), 'server_scores.json')
+SCORES_BACKUP = os.environ.get('BACKUP_PATH', os.path.join(os.path.dirname(DATABASE), 'server_scores.json'))
 API_PORT = int(os.environ.get('PORT', 5000))
+
+# Debug: afficher les chemins
+print(f"[Config] DATABASE: {DATABASE}")
+print(f"[Config] BACKUP: {SCORES_BACKUP}")
+print(f"[Config] BACKUP EXISTS: {os.path.exists(SCORES_BACKUP)}")
 
 # Créer le dossier data s'il n'existe pas
 os.makedirs(os.path.dirname(DATABASE), exist_ok=True)
@@ -148,6 +153,27 @@ def get_db():
     conn = sqlite3.connect(DATABASE)
     conn.row_factory = sqlite3.Row
     return conn
+
+@app.route('/assets/<path:filename>')
+def serve_assets(filename):
+    """Servir les fichiers statiques (images, etc)"""
+    return send_from_directory('../assets', filename)
+
+@app.route('/')
+def index():
+    """Redirection vers le leaderboard"""
+    return '''
+    <meta http-equiv="refresh" content="0; url=/scores.html" />
+    '''
+
+@app.route('/scores.html')
+def serve_leaderboard():
+    """Servir la page leaderboard"""
+    try:
+        with open('../web/scores.html', 'r', encoding='utf-8') as f:
+            return f.read()
+    except:
+        return 'Leaderboard not found', 404
 
 @app.route('/api/scores', methods=['GET'])
 def get_scores():
