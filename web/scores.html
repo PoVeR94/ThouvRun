@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thouv'Run - Scores Globaux</title>
-    <link rel="icon" type="image/png" href="https://thouvrun-production.up.railway.app/assets/images/minilogo.png">
+    <link rel="icon" type="image/png" href="https://thouvrun-production.up.railway.app/assets/images/minilogo.png?v=1">
+    <link rel="shortcut icon" type="image/png" href="https://thouvrun-production.up.railway.app/assets/images/minilogo.png?v=1">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <style>
         * {
@@ -15,7 +16,7 @@
 
         body {
             font-family: 'Press Start 2P', cursive;
-            background: #F5E6D3;
+            background: #FFF9E6;
             min-height: 100vh;
             padding: 20px;
             color: #333;
@@ -25,28 +26,26 @@
             image-rendering: crisp-edges;
         }
 
-        /* Background with weeds pattern */
+        /* Background with diagonal weeds animation */
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
             background-image: url('https://thouvrun-production.up.railway.app/assets/images/weed.png');
             background-repeat: repeat;
-            background-attachment: fixed;
-            opacity: 0.4;
-            transform: rotate(45deg);
+            background-size: 100px 100px;
+            opacity: 0.5;
             pointer-events: none;
             z-index: 0;
-            background-position: 0 0;
-            animation: moveWeeds 20s linear infinite;
+            animation: weedsDiagonal 8s linear infinite;
         }
 
-        @keyframes moveWeeds {
-            0% { background-position: 0 0; }
-            100% { background-position: 100px 100px; }
+        @keyframes weedsDiagonal {
+            0% { transform: translate(0, 0) rotate(45deg); }
+            100% { transform: translate(100px, -100px) rotate(45deg); }
         }
 
         /* Semi-transparent overlay on weeds */
@@ -57,7 +56,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(245, 230, 211, 0.85);
+            background: linear-gradient(135deg, rgba(255, 249, 230, 0.90) 0%, rgba(255, 249, 230, 0.95) 100%);
             pointer-events: none;
             z-index: 1;
         }
@@ -77,7 +76,7 @@
         }
 
         header .logo {
-            width: 150px;
+            width: 250px;
             height: auto;
             margin: 0 auto 20px;
             display: block;
@@ -404,7 +403,6 @@
     <div class="container">
         <header>
             <img src="https://thouvrun-production.up.railway.app/assets/images/logo.png" alt="Thouv'Run Logo" class="logo">
-            <h1>Thouv'Run</h1>
             <p>Classement Global</p>
         </header>
 
@@ -518,8 +516,17 @@
                     break;
                 case 'date':
                     sortedScores.sort((a, b) => {
-                        const dateA = new Date(a.date);
-                        const dateB = new Date(b.date);
+                        // Parse "DD/MM/YYYY HH:MM" format
+                        const parseDate = (dateStr) => {
+                            if (!dateStr) return new Date(0);
+                            const [datePart, timePart] = dateStr.split(' ');
+                            if (!datePart) return new Date(0);
+                            const [day, month, year] = datePart.split('/');
+                            const [hours, mins] = (timePart || '00:00').split(':');
+                            return new Date(parseInt(year), parseInt(month) - 1, parseInt(day), parseInt(hours), parseInt(mins));
+                        };
+                        const dateA = parseDate(a.date);
+                        const dateB = parseDate(b.date);
                         return ascending ? dateA - dateB : dateB - dateA;
                     });
                     break;
