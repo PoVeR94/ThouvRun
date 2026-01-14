@@ -22,8 +22,8 @@ app = Flask(__name__, static_folder='../assets', static_url_path='/assets')
 CORS(app)
 
 # Configuration
-DATABASE = os.environ.get('DATABASE_PATH', '../data/scores.db')
-SCORES_BACKUP = os.environ.get('BACKUP_PATH', os.path.join(os.path.dirname(DATABASE), 'server_scores.json'))
+DATABASE = os.environ.get('DATABASE_PATH', os.path.join(os.path.dirname(__file__), '..', 'data', 'scores.db'))
+SCORES_BACKUP = os.environ.get('BACKUP_PATH', os.path.join(os.path.dirname(__file__), '..', 'data', 'server_scores.json'))
 API_PORT = int(os.environ.get('PORT', 5000))
 
 # Debug: afficher les chemins
@@ -158,22 +158,6 @@ def get_db():
 def serve_assets(filename):
     """Servir les fichiers statiques (images, etc)"""
     return send_from_directory('../assets', filename)
-
-@app.route('/')
-def index():
-    """Redirection vers le leaderboard"""
-    return '''
-    <meta http-equiv="refresh" content="0; url=/scores.html" />
-    '''
-
-@app.route('/scores.html')
-def serve_leaderboard():
-    """Servir la page leaderboard"""
-    try:
-        with open('../web/scores.html', 'r', encoding='utf-8') as f:
-            return f.read()
-    except:
-        return 'Leaderboard not found', 404
 
 @app.route('/api/scores', methods=['GET'])
 def get_scores():
