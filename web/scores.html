@@ -30,11 +30,10 @@
         body::before {
             content: '';
             position: fixed;
-            top: 50%;
-            left: 50%;
-            width: 200%;
-            height: 200%;
-            transform: translate(-50%, -50%) rotate(45deg);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-image: url('https://thouvrun-production.up.railway.app/assets/images/weed.png');
             background-repeat: repeat;
             background-size: 100px 100px;
@@ -47,7 +46,7 @@
 
         @keyframes weedsDiagonal {
             0% { background-position: 0 0; }
-            100% { background-position: 200px -200px; }
+            100% { background-position: -200px 200px; }
         }
 
         /* Semi-transparent overlay on weeds */
