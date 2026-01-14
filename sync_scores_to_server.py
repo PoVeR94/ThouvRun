@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 Script pour synchroniser TOUS les scores locaux vers le serveur
 Utilisation: python sync_scores_to_server.py
@@ -9,6 +10,10 @@ import os
 import sys
 import requests
 import time
+
+# Force UTF-8 output
+import io
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 # Chemins
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
