@@ -10,7 +10,8 @@ from gestion_scores import (
     recuperer_dernier_joueur,
     recuperer_top3_global, 
     recuperer_meilleurs_scores,
-    recuperer_dernieres_parties
+    recuperer_dernieres_parties,
+    synchroniser_scores_au_demarrage
 )
 
 # --- CHEMINS DES ASSETS ---
@@ -884,6 +885,10 @@ def main():
 
     hud_best_score_val = 0
     hud_perso_best_val = 0
+    
+    # Synchroniser les scores au démarrage (envoyer locaux vers serveur + récupérer distants)
+    print("[Init] Synchronisation des scores au démarrage...")
+    synchroniser_scores_au_demarrage()
 
     while running:
         dt = clock.tick(FPS)
@@ -904,6 +909,8 @@ def main():
                 if event.key == pygame.K_BACKSPACE:
                     nom_joueur = nom_joueur[:-1]
                 elif event.key == pygame.K_RETURN: 
+                    # Sauvegarder le nom du joueur choisi
+                    sauvegarder_dernier_joueur(nom_joueur)
                     jeu = moteur_jeu.Jeu(nom_joueur, version_jeu="Graphique", difficulte=difficulte_actuelle)
                     musique_thread.demarrer_ambiance_jeu()
                     bg_scroll_float = 0.0

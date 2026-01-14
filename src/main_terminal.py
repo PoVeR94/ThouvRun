@@ -8,7 +8,8 @@ from gestion_scores import (
     recuperer_dernier_joueur, 
     recuperer_top3_global, 
     recuperer_meilleurs_scores, # AJOUTÉ
-    recuperer_dernieres_parties
+    recuperer_dernieres_parties,
+    synchroniser_scores_au_demarrage
 )
 
 # --- CONFIGURATION ---
@@ -232,6 +233,10 @@ def lancer_le_jeu(stdscr, h, w, musique_thread):
     
     # --- MUSIQUE JEU ---
     musique_thread.demarrer_ambiance_jeu()
+    
+    # Synchroniser les scores au démarrage
+    print("[Init] Synchronisation des scores...")
+    synchroniser_scores_au_demarrage()
 
     stdscr.nodelay(True)
     running = True

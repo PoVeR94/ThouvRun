@@ -69,6 +69,69 @@ def _telecharger_scores_api():
         print(f"[API] Erreur lors du téléchargement: {e}")
         return []
 
+def synchroniser_scores_au_demarrage():
+    """
+    Synchronise les scores au démarrage du jeu:
+    1. Envoie tous les scores locaux vers le serveur (une seule fois)
+    2. Récupère les scores du serveur et les fusionne avec les locaux
+    """
+    if not API_ENABLED:
+        return charger_scores()
+    
+    # Charger les scores locaux
+    scores_locaux = charger_scores()
+    
+    # Envoyer tous les scores locaux au serveur (en thread pour ne pas bloquer)
+    if scores_locaux:
+        def envoyer_tous_les_scores():
+            for score in scores_locaux:
+                try:
+                    response = requests.post(
+                        API_SERVER_URL,
+                        json=score,
+                        timeout=5
+                    )
+                    # Silencieux - pas de blocage
+                except:
+                    pass
+        
+        thread_sync = threading.Thread(target=envoyer_tous_les_scores, daemon=True)
+        thread_sync.start()
+    
+    # Récupérer les scores du serveur et fusionner
+    scores_distants = _telecharger_scores_api()
+    
+    if not scores_distants:
+        # Pas de scores distants - on retourne les locaux
+        return scores_locaux
+    
+    # Fusionner: ajouter les scores distants qui ne sont pas déjà locaux
+    scores_fusionnes = scores_locaux.copy()
+    
+    for score_distant in scores_distants:
+        # Vérifier si ce score existe déjà localement
+        existe = False
+        for score_local in scores_locaux:
+            if (score_local.get('nom') == score_distant.get('nom') and
+                score_local.get('score_total') == score_distant.get('score_total') and
+                score_local.get('date') == score_distant.get('date')):
+                existe = True
+                break
+        
+        if not existe:
+            scores_fusionnes.append(score_distant)
+    
+    # Sauvegarder les scores fusionnés localement
+    if scores_distants and len(scores_distants) > 0:
+        try:
+            with open(FICHIER_SCORES, 'w', encoding='utf-8') as f:
+                json.dump(scores_fusionnes, f, indent=4, ensure_ascii=False)
+        except Exception as e:
+            print(f"[Sync] Erreur lors de la sauvegarde fusionnée: {e}")
+    
+    print(f"[Sync] {len(scores_locaux)} scores locaux, {len(scores_distants)} scores serveur")
+    return scores_fusionnes
+
 def synchroniser_scores_depuis_serveur():
     """
     Synchronise les scores depuis le serveur distant
