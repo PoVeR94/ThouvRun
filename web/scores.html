@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thouv'Run - Scores Globaux</title>
+    <link rel="icon" type="image/png" href="./assets/images/minilogo.png">
     <style>
         * {
             margin: 0;
@@ -13,42 +14,99 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #F5E6D3;
             min-height: 100vh;
             padding: 20px;
             color: #333;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Background with weeds pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('./assets/images/weed.png');
+            background-repeat: repeat;
+            background-attachment: fixed;
+            opacity: 0.4;
+            transform: rotate(45deg);
+            pointer-events: none;
+            z-index: 0;
+            background-position: 0 0;
+            animation: moveWeeds 20s linear infinite;
+        }
+
+        @keyframes moveWeeds {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 100px 100px;
+            }
+        }
+
+        /* Semi-transparent overlay on weeds */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(245, 230, 211, 0.85);
+            pointer-events: none;
+            z-index: 1;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
         header {
             text-align: center;
-            color: white;
+            color: #333;
             margin-bottom: 40px;
             animation: slideDown 0.6s ease;
+        }
+
+        header .logo {
+            width: 120px;
+            height: auto;
+            margin: 0 auto 20px;
+            display: block;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
         }
 
         header h1 {
             font-size: 3em;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
+            color: #2d5016;
+            font-weight: bold;
         }
 
         header p {
             font-size: 1.2em;
+            color: #555;
             opacity: 0.9;
         }
 
         .controls {
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
             padding: 25px;
             border-radius: 15px;
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             animation: slideUp 0.6s ease;
+            border: 3px solid #2d5016;
         }
 
         .search-bar {
@@ -62,7 +120,7 @@
             flex: 1;
             min-width: 200px;
             padding: 12px 15px;
-            border: 2px solid #667eea;
+            border: 2px solid #2d5016;
             border-radius: 8px;
             font-size: 1em;
             transition: all 0.3s ease;
@@ -70,8 +128,8 @@
 
         .search-bar input:focus {
             outline: none;
-            border-color: #764ba2;
-            box-shadow: 0 0 10px rgba(118, 75, 162, 0.3);
+            border-color: #4a7c1c;
+            box-shadow: 0 0 10px rgba(45, 80, 22, 0.3);
         }
 
         .sort-buttons {
@@ -82,9 +140,9 @@
 
         .btn {
             padding: 12px 20px;
-            border: 2px solid #667eea;
+            border: 2px solid #2d5016;
             background: white;
-            color: #667eea;
+            color: #2d5016;
             border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
@@ -93,14 +151,22 @@
         }
 
         .btn:hover {
-            background: #667eea;
+            background: #2d5016;
             color: white;
             transform: translateY(-2px);
         }
 
         .btn.active {
-            background: #667eea;
+            background: #2d5016;
             color: white;
+        }
+
+        .btn.sort-asc::after {
+            content: ' ↑';
+        }
+
+        .btn.sort-desc::after {
+            content: ' ↓';
         }
 
         .stats {
@@ -111,11 +177,12 @@
         }
 
         .stat-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c1c 100%);
             color: white;
             padding: 15px;
             border-radius: 10px;
             text-align: center;
+            border: 2px solid #1a2f0b;
         }
 
         .stat-card h3 {
@@ -130,15 +197,16 @@
         }
 
         .scores-table {
-            background: white;
+            background: rgba(255, 255, 255, 0.98);
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             animation: fadeIn 0.6s ease;
+            border: 3px solid #2d5016;
         }
 
         .table-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c1c 100%);
             color: white;
             padding: 20px;
             display: grid;
@@ -147,6 +215,7 @@
             font-weight: bold;
             position: sticky;
             top: 0;
+            border-bottom: 3px solid #1a2f0b;
         }
 
         .table-row {
@@ -166,22 +235,22 @@
 
         .rank {
             font-weight: bold;
-            color: #667eea;
+            color: #2d5016;
             font-size: 1.3em;
         }
 
-        .rank.gold { color: #FFD700; }
-        .rank.silver { color: #C0C0C0; }
-        .rank.bronze { color: #CD7F32; }
+        .rank.gold { color: #FFD700; text-shadow: 0 0 8px rgba(255,215,0,0.5); }
+        .rank.silver { color: #C0C0C0; text-shadow: 0 0 8px rgba(192,192,192,0.5); }
+        .rank.bronze { color: #CD7F32; text-shadow: 0 0 8px rgba(205,127,50,0.5); }
 
         .player-name {
             font-weight: bold;
-            color: #333;
+            color: #2d5016;
         }
 
         .points {
             font-weight: bold;
-            color: #667eea;
+            color: #2d5016;
         }
 
         .distance {
@@ -208,11 +277,13 @@
         .difficulty.normal {
             background: #d4edda;
             color: #155724;
+            border: 2px solid #155724;
         }
 
         .difficulty.difficile {
             background: #f8d7da;
             color: #721c24;
+            border: 2px solid #721c24;
         }
 
         .no-results {
@@ -255,13 +326,13 @@
         .loading {
             text-align: center;
             padding: 40px;
-            color: white;
+            color: #2d5016;
             font-size: 1.2em;
         }
 
         .spinner {
-            border: 4px solid rgba(255,255,255,0.3);
-            border-top: 4px solid white;
+            border: 4px solid rgba(45, 80, 22, 0.3);
+            border-top: 4px solid #2d5016;
             border-radius: 50%;
             width: 40px;
             height: 40px;
@@ -275,13 +346,14 @@
         }
 
         .responsive-note {
-            background: rgba(255,255,255,0.1);
-            color: white;
+            background: rgba(45, 80, 22, 0.1);
+            color: #2d5016;
             padding: 10px;
             border-radius: 8px;
             margin-top: 15px;
             font-size: 0.9em;
             text-align: center;
+            border: 1px solid #2d5016;
         }
 
         @media (max-width: 768px) {
@@ -301,7 +373,8 @@
 <body>
     <div class="container">
         <header>
-            <h1>🎮 Thouv'Run</h1>
+            <img src="./assets/images/logo.png" alt="Thouv'Run Logo" class="logo">
+            <h1>Thouv'Run</h1>
             <p>Classement Global des Scores</p>
         </header>
 
@@ -316,10 +389,10 @@
             </div>
 
             <div class="sort-buttons">
-                <button class="btn active" data-sort="points">📊 Points</button>
-                <button class="btn" data-sort="distance">🏃 Distance</button>
-                <button class="btn" data-sort="bedos">🚬 Bedos</button>
-                <button class="btn" data-sort="date">🕐 Récent</button>
+                <button class="btn active sort-asc" data-sort="points" data-order="desc">📊 Points</button>
+                <button class="btn" data-sort="distance" data-order="asc">🏃 Distance</button>
+                <button class="btn" data-sort="bedos" data-order="asc">🚬 Bedos</button>
+                <button class="btn" data-sort="date" data-order="asc">🕐 Récent</button>
             </div>
 
             <div class="stats" id="stats">
@@ -367,6 +440,7 @@
     <script>
         let allScores = [];
         let currentSort = 'points';
+        let currentOrder = 'desc';  // 'asc' or 'desc'
         let currentSearch = '';
 
         async function loadScores() {
@@ -408,18 +482,24 @@
 
             // Tri
             const sortedScores = [...filtered];
+            const ascending = currentOrder === 'asc';
+            
             switch(currentSort) {
                 case 'points':
-                    sortedScores.sort((a, b) => b.score_total - a.score_total);
+                    sortedScores.sort((a, b) => ascending ? a.score_total - b.score_total : b.score_total - a.score_total);
                     break;
                 case 'distance':
-                    sortedScores.sort((a, b) => b.distance - a.distance);
+                    sortedScores.sort((a, b) => ascending ? a.distance - b.distance : b.distance - a.distance);
                     break;
                 case 'bedos':
-                    sortedScores.sort((a, b) => b.bedos - a.bedos);
+                    sortedScores.sort((a, b) => ascending ? a.bedos - b.bedos : b.bedos - a.bedos);
                     break;
                 case 'date':
-                    sortedScores.sort((a, b) => new Date(b.date) - new Date(a.date));
+                    sortedScores.sort((a, b) => {
+                        const dateA = new Date(a.date);
+                        const dateB = new Date(b.date);
+                        return ascending ? dateA - dateB : dateB - dateA;
+                    });
                     break;
             }
 
@@ -499,9 +579,23 @@
 
         document.querySelectorAll('[data-sort]').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                document.querySelectorAll('[data-sort]').forEach(b => b.classList.remove('active'));
-                e.target.classList.add('active');
-                currentSort = e.target.dataset.sort;
+                const newSort = e.target.dataset.sort;
+                
+                // Si on clique sur le même tri, inverser l'ordre
+                if (currentSort === newSort) {
+                    currentOrder = currentOrder === 'asc' ? 'desc' : 'asc';
+                } else {
+                    currentSort = newSort;
+                    // Par défaut, points en desc, autres en asc
+                    currentOrder = newSort === 'points' ? 'desc' : 'asc';
+                }
+                
+                // Mettre à jour les classes des boutons
+                document.querySelectorAll('[data-sort]').forEach(b => {
+                    b.classList.remove('active', 'sort-asc', 'sort-desc');
+                });
+                e.target.classList.add('active', currentOrder === 'asc' ? 'sort-asc' : 'sort-desc');
+                
                 renderScores();
             });
         });
