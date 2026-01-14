@@ -59,7 +59,7 @@ def init_db():
     remove_duplicates()
 
 def load_from_backup():
-    """Charger les scores depuis la sauvegarde JSON - sans doublon"""
+    """Charger les scores depuis la sauvegarde JSON - force reload on startup"""
     if os.path.exists(SCORES_BACKUP):
         try:
             with open(SCORES_BACKUP, 'r', encoding='utf-8') as f:
@@ -69,53 +69,26 @@ def load_from_backup():
                 conn = sqlite3.connect(DATABASE)
                 c = conn.cursor()
                 
-                # Vérifier si la BD est vide
-                c.execute('SELECT COUNT(*) as count FROM scores')
-                count = c.fetchone()['count']
+                # TOUJOURS vider et recharger le backup au démarrage
+                # Cela garantit que Railway a toujours les scores corrects
+                c.execute('DELETE FROM scores')
                 
-                if count == 0:
-                    # BD vide = charger tout le backup
-                    for score in backup_scores:
-                        c.execute('''
-                            INSERT INTO scores (nom, score_total, distance, bedos, version, difficulte, date)
-                            VALUES (?, ?, ?, ?, ?, ?, ?)
-                        ''', (
-                            score.get('nom'),
-                            int(score.get('score_total', 0)),
-                            int(score.get('distance', 0)),
-                            int(score.get('bedos', 0)),
-                            score.get('version', ''),
-                            score.get('difficulte', 'NORMALE'),
-                            score.get('date', datetime.now().strftime("%d/%m/%Y %H:%M"))
-                        ))
-                    print(f"[Init] {len(backup_scores)} scores chargés depuis le backup (BD vide)")
-                else:
-                    # BD non vide = juste syncher les nouveaux (éviter doublons)
-                    added = 0
-                    for score in backup_scores:
-                        c.execute('''
-                            SELECT COUNT(*) as count FROM scores
-                            WHERE nom=? AND score_total=? AND date=?
-                        ''', (score.get('nom'), score.get('score_total'), score.get('date')))
-                        
-                        if c.fetchone()['count'] == 0:
-                            c.execute('''
-                                INSERT INTO scores (nom, score_total, distance, bedos, version, difficulte, date)
-                                VALUES (?, ?, ?, ?, ?, ?, ?)
-                            ''', (
-                                score.get('nom'),
-                                int(score.get('score_total', 0)),
-                                int(score.get('distance', 0)),
-                                int(score.get('bedos', 0)),
-                                score.get('version', ''),
-                                score.get('difficulte', 'NORMALE'),
-                                score.get('date', datetime.now().strftime("%d/%m/%Y %H:%M"))
-                            ))
-                            added += 1
-                    
-                    print(f"[Init] {added} nouveaux scores ajoutés depuis le backup")
+                for score in backup_scores:
+                    c.execute('''
+                        INSERT INTO scores (nom, score_total, distance, bedos, version, difficulte, date)
+                        VALUES (?, ?, ?, ?, ?, ?, ?)
+                    ''', (
+                        score.get('nom'),
+                        int(score.get('score_total', 0)),
+                        int(score.get('distance', 0)),
+                        int(score.get('bedos', 0)),
+                        score.get('version', ''),
+                        score.get('difficulte', 'NORMALE'),
+                        score.get('date', datetime.now().strftime("%d/%m/%Y %H:%M"))
+                    ))
                 
                 conn.commit()
+                print(f"[Init] {len(backup_scores)} scores reloadés depuis le backup (all previous deleted)")
                 conn.close()
         except Exception as e:
             print(f"[Init] Erreur lors du chargement de la sauvegarde: {e}")
