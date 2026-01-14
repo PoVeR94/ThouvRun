@@ -22,12 +22,12 @@ app = Flask(__name__)
 CORS(app)
 
 # Configuration
-DATABASE = os.environ.get('DATABASE_PATH', '../data/scores.db')
+DATABASE = os.environ.get('DATABASE_PATH', 'data/scores.db')
 SCORES_BACKUP = os.path.join(os.path.dirname(DATABASE), 'server_scores.json')
 API_PORT = int(os.environ.get('PORT', 5000))
 
 # Créer le dossier data s'il n'existe pas
-os.makedirs(os.path.dirname(DATABASE), exist_ok=True)
+os.makedirs('data', exist_ok=True)
 
 def init_db():
     """Initialiser la base de données"""
@@ -54,12 +54,9 @@ def init_db():
     
     # Charger la sauvegarde si elle existe (toujours, même si DB existe)
     load_from_backup()
-    
-    # Nettoyer les doublons qui pourraient rester
-    remove_duplicates()
 
 def load_from_backup():
-    """Charger les scores depuis la sauvegarde JSON - sans doublon"""
+    """Charger les scores depuis la sauvegarde JSON"""
     if os.path.exists(SCORES_BACKUP):
         try:
             with open(SCORES_BACKUP, 'r', encoding='utf-8') as f:
@@ -69,79 +66,28 @@ def load_from_backup():
                 conn = sqlite3.connect(DATABASE)
                 c = conn.cursor()
                 
-                # Vérifier si la BD est vide
-                c.execute('SELECT COUNT(*) as count FROM scores')
-                count = c.fetchone()['count']
+                # Vider la table (évite les doublons si on recharge plusieurs fois)
+                c.execute('DELETE FROM scores')
                 
-                if count == 0:
-                    # BD vide = charger tout le backup
-                    for score in backup_scores:
-                        c.execute('''
-                            INSERT INTO scores (nom, score_total, distance, bedos, version, difficulte, date)
-                            VALUES (?, ?, ?, ?, ?, ?, ?)
-                        ''', (
-                            score.get('nom'),
-                            int(score.get('score_total', 0)),
-                            int(score.get('distance', 0)),
-                            int(score.get('bedos', 0)),
-                            score.get('version', ''),
-                            score.get('difficulte', 'NORMALE'),
-                            score.get('date', datetime.now().strftime("%d/%m/%Y %H:%M"))
-                        ))
-                    print(f"[Init] {len(backup_scores)} scores chargés depuis le backup (BD vide)")
-                else:
-                    # BD non vide = juste syncher les nouveaux (éviter doublons)
-                    added = 0
-                    for score in backup_scores:
-                        c.execute('''
-                            SELECT COUNT(*) as count FROM scores
-                            WHERE nom=? AND score_total=? AND date=?
-                        ''', (score.get('nom'), score.get('score_total'), score.get('date')))
-                        
-                        if c.fetchone()['count'] == 0:
-                            c.execute('''
-                                INSERT INTO scores (nom, score_total, distance, bedos, version, difficulte, date)
-                                VALUES (?, ?, ?, ?, ?, ?, ?)
-                            ''', (
-                                score.get('nom'),
-                                int(score.get('score_total', 0)),
-                                int(score.get('distance', 0)),
-                                int(score.get('bedos', 0)),
-                                score.get('version', ''),
-                                score.get('difficulte', 'NORMALE'),
-                                score.get('date', datetime.now().strftime("%d/%m/%Y %H:%M"))
-                            ))
-                            added += 1
-                    
-                    print(f"[Init] {added} nouveaux scores ajoutés depuis le backup")
+                for score in backup_scores:
+                    c.execute('''
+                        INSERT INTO scores (nom, score_total, distance, bedos, version, difficulte, date)
+                        VALUES (?, ?, ?, ?, ?, ?, ?)
+                    ''', (
+                        score.get('nom'),
+                        int(score.get('score_total', 0)),
+                        int(score.get('distance', 0)),
+                        int(score.get('bedos', 0)),
+                        score.get('version', ''),
+                        score.get('difficulte', 'NORMALE'),
+                        score.get('date', datetime.now().strftime("%d/%m/%Y %H:%M"))
+                    ))
                 
                 conn.commit()
                 conn.close()
+                print(f"[Init] {len(backup_scores)} scores chargés depuis la sauvegarde JSON")
         except Exception as e:
             print(f"[Init] Erreur lors du chargement de la sauvegarde: {e}")
-
-def remove_duplicates():
-    """Nettoie les doublons exacts de la BD"""
-    try:
-        conn = sqlite3.connect(DATABASE)
-        c = conn.cursor()
-        
-        # Trouver et supprimer les doublons
-        c.execute('''
-            DELETE FROM scores WHERE rowid NOT IN (
-                SELECT MIN(rowid) FROM scores
-                GROUP BY nom, score_total, distance, bedos, version, difficulte, date
-            )
-        ''')
-        
-        deleted = c.rowcount
-        if deleted > 0:
-            print(f"[Init] {deleted} doublons supprimés")
-        
-        conn.commit()
-        conn.close()
-    except Exception as e:
-        print(f"[Init] Erreur lors du nettoyage des doublons: {e}")
 
 def save_to_backup():
     """Sauvegarder les scores dans un fichier JSON pour persistance"""
@@ -321,9 +267,8 @@ def get_player_stats(nom):
 def serve_leaderboard():
     """Sert la page HTML du leaderboard"""
     try:
-        leaderboard_path = os.path.join(os.path.dirname(__file__), '..', 'web', 'scores.html')
-        if os.path.exists(leaderboard_path):
-            with open(leaderboard_path, 'r', encoding='utf-8') as f:
+        if os.path.exists('scores.html'):
+            with open('scores.html', 'r', encoding='utf-8') as f:
                 return f.read(), 200, {'Content-Type': 'text/html; charset=utf-8'}
         else:
             return "scores.html non trouvé", 404
