@@ -4,7 +4,8 @@ Synchronise les scores de tous les joueurs en ligne
 
 Architecture:
 - Base de données SQLite (scores.db)
-- Fichier JSON de sauvegarde (data/server_scores.json) - sauvegarde persistante
+- Fichier JSON de sauvegarde primaire (data/thouv_scores.json) - source de vérité
+- Fichier JSON de fallback (data/server_scores.json) - dernier recours uniquement
 - Chaque joueur envoie son score au serveur
 - Leaderboard web global à https://votre-domaine.com
 - Téléchargement des scores pour tous les joueurs
@@ -24,6 +25,7 @@ CORS(app)
 # Configuration
 DATABASE = os.environ.get('DATABASE_PATH', os.path.join(os.path.dirname(__file__), '..', 'data', 'scores.db'))
 SCORES_BACKUP = os.environ.get('BACKUP_PATH', os.path.join(os.path.dirname(__file__), '..', 'data', 'thouv_scores.json'))
+SCORES_BACKUP_FALLBACK = os.path.join(os.path.dirname(__file__), '..', 'data', 'server_scores.json')  # Fallback si thouv_scores manque
 API_PORT = int(os.environ.get('PORT', 5000))
 
 # Debug: afficher les chemins
@@ -64,10 +66,17 @@ def init_db():
     remove_duplicates()
 
 def load_from_backup():
-    """Charger les scores depuis la sauvegarde JSON - force reload on startup"""
-    if os.path.exists(SCORES_BACKUP):
+    """Charger les scores depuis la sauvegarde JSON - force reload on startup
+    
+    Priorite:
+    1. thouv_scores.json (primaire - synchronise avec local)
+    2. server_scores.json (fallback - dernier recours)
+    """
+    backup_file = SCORES_BACKUP if os.path.exists(SCORES_BACKUP) else SCORES_BACKUP_FALLBACK
+    
+    if os.path.exists(backup_file):
         try:
-            with open(SCORES_BACKUP, 'r', encoding='utf-8') as f:
+            with open(backup_file, 'r', encoding='utf-8') as f:
                 backup_scores = json.load(f)
             
             if backup_scores:
@@ -93,7 +102,8 @@ def load_from_backup():
                     ))
                 
                 conn.commit()
-                print(f"[Init] {len(backup_scores)} scores reloadés depuis le backup (all previous deleted)")
+                backup_source = "thouv_scores.json (primaire)" if backup_file == SCORES_BACKUP else "server_scores.json (fallback)"
+                print(f"[Init] {len(backup_scores)} scores reloadés depuis {backup_source}")
                 conn.close()
         except Exception as e:
             print(f"[Init] Erreur lors du chargement de la sauvegarde: {e}")
