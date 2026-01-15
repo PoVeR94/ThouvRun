@@ -69,31 +69,26 @@ echo     - flask-cors (API)
 echo     - requests (sync scores)
 echo.
 
-REM Desactiver verification SSL (probleme systeme Windows)
-set PYTHONHTTPSVERIFY=0
-
-REM Installer les dependances
-python -m pip install --no-cache-dir -r requirements-dev.txt
+REM Utiliser un mirror HTTP pour eviter les problemes SSL
+echo [*] Utilisation d'un mirror PyPI (HTTP pour eviter SSL)...
+python -m pip install --index-url http://mirrors.aliyun.com/pypi/simple/ --no-cache-dir -r requirements-dev.txt
 
 if errorlevel 1 (
     echo.
     echo [ERREUR] Impossible d'installer les dependances
     echo.
-    echo Ce probleme est generalement du a:
-    echo - Un antivirus/firewall bloquant PyPI
-    echo - Un proxy d'entreprise interceptant SSL
+    echo SOLUTION PROBABLE:
+    echo - Verifiez que l'horloge Windows est correcte
+    echo - Clic-droit horloge Windows en bas a droite
+    echo - Si l'heure est decalee, Windows la corrigera apres redemarrage
     echo.
-    echo Solutions:
-    echo 1. Desactiver temporairement l'antivirus
-    echo 2. Verifier votre connexion internet
-    echo 3. Relancer ce script
+    echo Autre probleme possible:
+    echo - Certificats Windows corrompus ^(rare^)
+    echo - Proxy d'entreprise interceptant le trafic
     echo.
     pause
     exit /b 1
 )
-
-REM Reactiver verification SSL
-set PYTHONHTTPSVERIFY=1
 
 echo [OK] Dependances installees!
 
