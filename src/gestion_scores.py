@@ -44,6 +44,49 @@ def _telecharger_scores_api():
     except:
         return []  # Silencieux
 
+def _synchroniser_backup_depuis_serveur():
+    """
+    Synchronise le fichier backup local avec les scores du serveur.
+    Fusionne les scores locaux et distants sans doublons.
+    Appelée après chaque partie pour garantir que les données ne sont jamais perdues.
+    """
+    try:
+        # Charger les scores locaux
+        scores_locaux = charger_scores()
+        
+        # Télécharger les scores distants depuis l'API
+        scores_distants = _telecharger_scores_api()
+        
+        if not scores_distants:
+            return  # Pas de changement
+        
+        # Fusionner: ajouter les scores distants qui ne sont pas déjà locaux
+        scores_fusionnes = scores_locaux.copy()
+        
+        scores_ajoutes = 0
+        for score_distant in scores_distants:
+            # Vérifier si ce score existe déjà localement
+            existe = False
+            for score_local in scores_locaux:
+                if (score_local.get('nom') == score_distant.get('nom') and
+                    score_local.get('score_total') == score_distant.get('score_total') and
+                    score_local.get('date') == score_distant.get('date')):
+                    existe = True
+                    break
+            
+            if not existe:
+                scores_fusionnes.append(score_distant)
+                scores_ajoutes += 1
+        
+        # Sauvegarder les scores fusionnés (met à jour le backup)
+        if scores_ajoutes > 0:
+            with open(FICHIER_SCORES, 'w', encoding='utf-8') as f:
+                json.dump(scores_fusionnes, f, indent=4, ensure_ascii=False)
+            print(f"[BackupSync] {scores_ajoutes} scores synchronisés depuis le serveur")
+    except Exception as e:
+        # Silencieux - ne pas déranger le jeu si la sync échoue
+        pass
+
 def charger_scores_avec_sync():
     """
     Charge les scores au démarrage du jeu:
@@ -233,6 +276,11 @@ def sauvegarder_nouveau_score(nom_joueur, score_total, distance, bedos, version,
     # Envoi à l'API en arrière-plan (ne bloque pas le jeu)
     thread_api = threading.Thread(target=_envoyer_score_api, args=(nouvelle_entree,), daemon=True)
     thread_api.start()
+    
+    # Synchroniser immédiatement: télécharge les scores du serveur et met à jour le backup local
+    # Cela garantit que les scores ne sont jamais perdus lors d'un git push
+    thread_sync = threading.Thread(target=_synchroniser_backup_depuis_serveur, daemon=True)
+    thread_sync.start()
 
 # --- GESTION NOM ---
 def sauvegarder_dernier_joueur(nom):
