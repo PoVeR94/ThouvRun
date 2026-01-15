@@ -3,26 +3,7 @@ REM ========================================
 REM Thouv'Run - Jeu Terminal (Curses)
 REM ========================================
 
-setlocal enabledelayedexpansion
-
 cd /d "%~dp0"
-
-REM Verifier que les dependances sont installees
-python -c "import windows_curses, requests, flask" >nul 2>&1
-
-if errorlevel 1 (
-    echo.
-    echo [!] Les dependances ne sont pas installees
-    echo.
-    echo Lancement du SETUP...
-    echo.
-    call SETUP.bat
-    if errorlevel 1 (
-        echo Installation echouee. Impossible de demarrer le jeu.
-        pause
-        exit /b 1
-    )
-)
 
 REM Lancer le jeu terminal
 python src/main_terminal.py
