@@ -74,9 +74,54 @@ python -m pip install -r requirements-dev.txt
 
 if errorlevel 1 (
     echo.
-    echo [ERREUR] Erreur lors de l'installation des dependances
-    pause
-    exit /b 1
+    echo [!] Erreur SSL detectee - tentative avec mirror alternatif...
+    echo.
+    
+    REM Tentative 2: Aliyun mirror (plus stable en Chine/bloquages proxy)
+    python -m pip install -i https://mirrors.aliyun.com/pypi/simple/ -r requirements-dev.txt
+    
+    if errorlevel 1 (
+        echo.
+        echo [!] Deuxieme tentative echouee - essai sans verification SSL...
+        echo.
+        
+        REM Tentative 3: Desactiver verification SSL (derniere chance)
+        python -m pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org -r requirements-dev.txt
+        
+        if errorlevel 1 (
+            echo.
+            echo [ERREUR] Impossible d'installer les dependances
+            echo.
+            echo CAUSES POSSIBLES:
+            echo 1. Antivirus/Firewall bloquant PyPI
+            echo 2. Reseau d'entreprise/ecole avec proxy SSL
+            echo 3. Horloge du PC desynchronisee
+            echo 4. Internet coupe ou instable
+            echo.
+            echo SOLUTIONS:
+            echo 1. Verifiez votre connexion internet
+            echo 2. Desactiver temporairement l'antivirus
+            echo 3. Verifiez l'heure du PC ^(clic-droit horloge^)
+            echo 4. Relancez ce script plus tard
+            echo.
+            echo OU installez manuellement dans PowerShell:
+            echo   python -m pip install pygame
+            echo   python -m pip install windows-curses
+            echo   python -m pip install flask flask-cors requests
+            echo.
+            pause
+            exit /b 1
+        )
+        
+        echo [OK] Dependances installees ^(mode sans verification SSL^)!
+        echo.
+    ) else (
+        echo [OK] Dependances installees ^(via mirror Aliyun^)!
+        echo.
+    )
+) else (
+    echo [OK] Dependances installees!
+    echo.
 )
 
 echo.
