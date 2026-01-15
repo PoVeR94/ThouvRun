@@ -1,0 +1,74 @@
+@startuml Thouv-Run Sequence Diagram - Score Sync
+!theme vibrant
+
+participant "Joueur (GUI)" as Player
+participant "Moteur Jeu" as Engine
+participant "Gestion Scores" as Scores
+participant "API Serveur" as API
+participant "Backup JSON" as Backup
+participant "Leaderboard Web" as Web
+
+== Partie 1 : Fin de Partie & Sauvegarde ==
+
+Player -> Engine: [R] Redémarrer / Fin
+Engine -> Engine: fin_partie(cause)
+Engine -> Scores: sauvegarder_nouveau_score(...)
+
+== Étape 1 : Sauvegarde Locale ==
+
+Scores -> Backup: Charger thouv_scores.json
+Backup --> Scores: [score1, score2, ...]
+Scores -> Scores: Ajouter nouveau score
+Scores -> Backup: Écrire thouv_scores.json
+Backup --> Scores: ✓ Sauvegardé
+
+== Étape 2 : Envoi Asynchrone à l'API ==
+
+Scores -> Scores: Thread: _envoyer_score_api()
+Scores ->> API: POST /api/scores [ASYNC]
+API -> API: Valider & stocker en SQLite
+API ->> Scores: ✓ 200 OK [ASYNC]
+
+== Étape 3 : Synchronisation du Backup ==
+
+Scores -> Scores: Thread: _synchroniser_backup()
+Scores ->> API: GET /api/scores?limit=500 [ASYNC]
+API -> API: Récupérer tous les scores
+API ->> Scores: [score1, ..., score191]
+
+Scores -> Scores: Fusionner (local + serveur)
+Scores -> Scores: Déduplicater par (nom, date, score)
+Scores -> Backup: Mettre à jour thouv_scores.json
+Backup --> Scores: ✓ Backup synchronisé
+
+== Partie 2 : Leaderboard Web (Utilisateur différent) ==
+
+Web -> Web: setInterval(10s)
+Web ->> API: GET /api/scores?limit=500
+API -> API: Récupérer depuis SQLite
+API ->> Web: [191 scores JSON]
+
+Web -> Web: Parser & afficher tableau
+Web -> Web: Calculer stats (total, meilleur, joueurs)
+Web --> Web: ✓ Tableau mis à jour
+
+note right of Scores
+  ⚡ Toutes les opérations
+  après sauvegarder_nouveau_score()
+  s'exécutent en threads.
+  Le jeu n'est jamais bloqué!
+end note
+
+note bottom of Backup
+  💾 Backup local = source de vérité
+  En cas de perte serveur,
+  les scores persistent dans Git!
+end note
+
+note bottom of API
+  🔄 L'API est le point de sync
+  Redémarrage !== perte données
+  (backup remonte à chaque démarrage)
+end note
+
+@enduml

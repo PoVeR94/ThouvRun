@@ -11,7 +11,6 @@
 ## 🎯 C'est Quoi?
 
 **Thouv'Run** c'est un **petit jeu de plateforme fun et addictif** où tu dois:
-- ⬆️ **Sauter** sur des platforms
 - 💨 **Esquiver** des obstacles
 - 🏃 **Courir** le plus loin possible
 - 📊 **Comparer** tes scores avec les autres joueurs
@@ -35,30 +34,8 @@ Choisis la version que tu préfères:
 #### 🎨 **Version Graphique (Pygame)** - Recommandée!
 Double-clic sur: **`Thouv-Run-Graphique.bat`**
 
-```
-🕹️ Contrôles:
-   SPACE      = Sauter
-   GAUCHE/DROITE = Se déplacer
-   ESC        = Pause
-   P          = Menu pause
-   F11        = Plein écran
-```
-
 #### 🖥️ **Version Terminal (Retro)**
 Double-clic sur: **`Thouv-Run-Terminal.bat`**
-
-```
-⌨️  Contrôles:
-   Z / Haut   = Sauter
-   Gauche/Droite = Se déplacer
-   ESC        = Pause
-```
-
-### 3️⃣ **Voir le Leaderboard**
-
-Double-clic sur: **`Thouv-Leaderboard.bat`**
-
-Ça lance automatiquement le serveur et ouvre le leaderboard dans ton navigateur!
 
 ---
 
@@ -66,13 +43,11 @@ Double-clic sur: **`Thouv-Leaderboard.bat`**
 
 **Accessible 24/7:** https://www.thouvrun.com
 
-Ou directement sur Railway: https://thouvrun-production.up.railway.app/scores.html
-
 Vois tes scores, ceux de tes amis, et sois numéro 1! 🥇
 
 **Fonctionnalités:**
 - 🔍 Recherche par joueur
-- 📊 Tri par points, distance, date
+- 📊 Tri par points, distance, date et bedos
 - 📈 Statistiques globales
 - 🔄 Mise à jour automatique
 
@@ -81,9 +56,9 @@ Vois tes scores, ceux de tes amis, et sois numéro 1! 🥇
 ## 💡 Astuces pour Scorer Haut
 
 1. **Maîtrise le timing** - Les sauts doivent être précis!
-2. **Anticipe les obstacles** - Commence à sauter avant la plateforme
+2. **Anticipe les obstacles** - Commence à sauter avant!
 3. **Reste concentré** - C'est vite difficile, reste zen!
-4. **Entraîne-toi** - Plus tu joues, mieux tu deviens
+4. **Entraîne-toi** - Plus tu joues, mieux tu deviens!
 
 ---
 
@@ -113,15 +88,6 @@ C'est le langage du jeu. L'installation est automatique - tu appuies juste sur S
 
 ### "Y a un budget?"
 💰 Complètement gratuit! Pas de pub, pas de microtransactions, rien. Juste du fun pur!
-
----
-
-## 🎮 Conseils de Joueurs Expérimentés
-
-- **Rythme constant**: Saute régulièrement pour maintenir ton élan
-- **Anti-obstacles**: Regarde loin devant et prépare tes mouvements
-- **Patience**: Certains niveaux sont plus durs, recommence!
-- **Challenge friends**: Vise les meilleurs scores du leaderboard
 
 ---
 
