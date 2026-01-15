@@ -214,10 +214,21 @@
         .scores-table {
             background: rgba(255, 255, 255, 0.98);
             border-radius: 0px;
-            overflow: hidden;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             animation: fadeIn 0.6s ease;
             border: 4px solid #2d5016;
+        }
+
+        #scoresContainer {
+            display: contents;
+        }
+
+        @supports not (display: contents) {
+            #scoresContainer {
+                display: block;
+            }
         }
 
         .table-header {
@@ -225,7 +236,7 @@
             color: white;
             padding: 20px;
             display: grid;
-            grid-template-columns: 80px 1fr 120px 120px 120px 100px;
+            grid-template-columns: 80px 1fr 120px 120px 120px 140px;
             gap: 15px;
             font-weight: bold;
             position: sticky;
@@ -239,7 +250,7 @@
         .table-row {
             padding: 20px;
             display: grid;
-            grid-template-columns: 80px 1fr 120px 120px 120px 100px;
+            grid-template-columns: 80px 1fr 120px 120px 120px 140px;
             gap: 15px;
             border-bottom: 2px solid #ddd;
             align-items: center;
@@ -380,22 +391,136 @@
             letter-spacing: 1px;
         }
 
+        /* Tablet - 768px and below */
         @media (max-width: 768px) {
-            header h1 { font-size: 1.5em; }
+            header h1 { font-size: 1.8em; }
+            header .logo { width: 180px; }
             
-            .table-header,
-            .table-row {
-                grid-template-columns: 60px 1fr 100px 80px;
-                gap: 10px;
-                font-size: 0.8em;
+            .controls {
+                padding: 15px;
             }
 
-            .bedos,
-            .date { display: none; }
+            .table-header,
+            .table-row {
+                grid-template-columns: 50px 1fr 100px 120px 120px 130px;
+                gap: 8px;
+                font-size: 0.75em;
+                padding: 15px;
+                min-width: 550px;
+            }
 
             .btn {
                 font-size: 0.6em;
                 padding: 8px 12px;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat-card {
+                padding: 10px;
+            }
+
+            .stat-card h3 { font-size: 0.6em; }
+            .stat-card .value { font-size: 1.2em; }
+        }
+
+        /* Mobile - 480px and below */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            header h1 { font-size: 1.3em; }
+            header .logo { width: 120px; }
+            header p { font-size: 0.7em; }
+
+            .controls {
+                padding: 10px;
+                margin-bottom: 15px;
+            }
+
+            .search-bar {
+                margin-bottom: 10px;
+            }
+
+            .search-bar input {
+                min-width: 150px;
+                padding: 8px 10px;
+                font-size: 0.8em;
+            }
+
+            .sort-buttons {
+                margin-bottom: 10px;
+            }
+
+            .btn {
+                font-size: 0.5em;
+                padding: 6px 8px;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                margin-bottom: 10px;
+            }
+
+            .stat-card {
+                padding: 8px;
+                font-size: 0.9em;
+            }
+
+            .stat-card h3 { font-size: 0.55em; }
+            .stat-card .value { font-size: 1em; }
+
+            .table-header,
+            .table-row {
+                grid-template-columns: 40px 1fr 90px 100px 100px 110px;
+                gap: 8px;
+                font-size: 0.65em;
+                padding: 10px;
+                min-width: 520px;
+            }
+
+            .responsive-note {
+                font-size: 0.65em;
+                padding: 8px;
+                margin-top: 10px;
+            }
+
+            .responsive-note::after {
+                content: " (← glisse →)";
+                display: block;
+                font-size: 0.9em;
+            }
+
+            .scores-table {
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+
+            .table-header {
+                padding: 12px;
+            }
+        }
+
+        /* Very small phones - 320px and below */
+        @media (max-width: 320px) {
+            header h1 { font-size: 1.1em; }
+            header .logo { width: 100px; }
+
+            .table-header,
+            .table-row {
+                grid-template-columns: 35px 1fr 80px 90px 90px 100px;
+                gap: 6px;
+                font-size: 0.6em;
+                padding: 8px;
+                min-width: 490px;
+            }
+
+            .btn {
+                font-size: 0.45em;
+                padding: 5px 6px;
             }
         }
     </style>
