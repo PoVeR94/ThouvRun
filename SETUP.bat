@@ -2,7 +2,6 @@
 REM ========================================
 REM SETUP Thouv'Run - Installation automatique
 REM ========================================
-setlocal enabledelayedexpansion
 
 cls
 echo.
@@ -17,34 +16,15 @@ python --version >nul 2>&1
 
 if errorlevel 1 (
     echo.
-    echo [*] Python non detecte, installation automatique...
+    echo [ERREUR] Python n'est pas installe ou pas dans le PATH
     echo.
-    
-    echo [*] Telechargement de Python (cela peut prendre 1-2 minutes)...
-    
-    REM Telecharger Python avec certutil
-    certutil -urlcache -split -f "https://www.python.org/ftp/python/3.12.1/python-3.12.1-amd64.exe" "%TEMP%\python-installer.exe" >nul 2>&1
-    
-    if not exist "%TEMP%\python-installer.exe" (
-        echo [ERREUR] Impossible de telecharger Python
-        echo Essaye une installation manuelle: https://www.python.org/downloads/
-        pause
-        exit /b 1
-    )
-    
-    echo [*] Installation de Python...
-    "%TEMP%\python-installer.exe" /quiet InstallAllUsers=1 PrependPath=1
-    
-    del "%TEMP%\python-installer.exe" /f /q 2>nul
-    
+    echo SOLUTIONS:
+    echo 1. Telecharge Python 3.12: https://www.python.org/downloads/
+    echo 2. IMPORTANT: Coche "Add Python to PATH" durant l'installation
+    echo 3. Une fois termine, ferme ce script et relance-le
     echo.
-    echo [OK] Python installe!
-    echo.
-    echo Appuie sur une touche pour continuer...
     pause
-    REM Relancer le script automatiquement
-    call "%~f0"
-    exit /b 0
+    exit /b 1
 )
 
 echo [OK] Python trouve!
