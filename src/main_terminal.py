@@ -97,15 +97,15 @@ def afficher_tuto(stdscr, h, w):
     lignes = [
         "", "C'est le premier jour des cours et tu es en retard !",
         "Bastien va au CSND avec ses rollers et pendant sa route il doit esquiver voitures, camions et policiers",
-        "sans oublier de prendre quelques bedos sur la route !", "",
+        "sans oublier de prendre quelques bédos sur la route !", "",
         "--- COMMANDES ---", "",
         "SAUT COURT : [ESPACE] ou [FLECHE HAUT]",
-        "> Ideal pour esquiver les VOITURES et les POLICIERS.",
+        "> Idéal pour esquiver les VOITURES et les POLICIERS.",
         "CONSEIL : L'utiliser juste avant de toucher la voiture",
         "pour ne pas toucher le coffre !", "",
         "SAUT LONG  : [W] ou [Z]",
         "> Indispensable pour passer par dessus les CAMIONS.",
-        "CONSEIL : Ce saut est tres long, l'utiliser bien avant",
+        "CONSEIL : Ce saut est très long, l'utiliser bien avant",
         "de toucher le camion pour avoir le temps d'esquiver la suite !", "",
         "VOLUME : [+] et [-] (Clavier ou Pave Num)",
         "RESTART : [R] (quand Game Over)", "QUITTER : [ESC]", "",
@@ -136,7 +136,7 @@ def afficher_ecran_scores(stdscr, h, w):
             centrer_texte(stdscr, 2, "MEILLEURS SCORES", w, curses.A_BOLD)
             
             # En-têtes pour le Top 10
-            header = "RANG | JOUEUR         | SCORE  | VERSION | DIFFICULTE"
+            header = "RANG | JOUEUR         | SCORE  | VERSION | DIFFICULTÉ"
             centrer_texte(stdscr, 5, header, w, curses.A_UNDERLINE)
             
             # Récupération du Top 10
@@ -175,7 +175,7 @@ def afficher_ecran_scores(stdscr, h, w):
                 centrer_texte(stdscr, 2, f"HISTORIQUE DE : {nom}", w, curses.A_BOLD)
                 centrer_texte(stdscr, 4, "10 DERNIERES PARTIES :", w, curses.A_UNDERLINE)
                 
-                header = "SCORE  | DIST | BEDOS | VERSION |   DIFF   |    DATE"
+                header = "SCORE  | DIST | BÉDOS | VERSION |   DIFF   |    DATE"
                 centrer_texte(stdscr, 6, header, w, curses.A_DIM)
                 
                 historique = recuperer_dernieres_parties(nom, 10)
@@ -206,7 +206,7 @@ def choisir_difficulte(stdscr, h, w):
     stdscr.nodelay(False)
     while True:
         stdscr.clear()
-        centrer_texte(stdscr, h//2 - 3, "CHOISISSEZ LA DIFFICULTE", w, curses.A_BOLD)
+        centrer_texte(stdscr, h//2 - 3, "CHOISISSEZ LA DIFFICULTÉ", w, curses.A_BOLD)
         centrer_texte(stdscr, h//2 - 1, "1. NORMALE (Classique)", w)
         centrer_texte(stdscr, h//2, "2. DIFFICILE (Chaos total x1.5 points)", w)
         key = stdscr.getch()
@@ -303,7 +303,7 @@ def lancer_le_jeu(stdscr, h, w, musique_thread):
         for obs in jeu.obstacles: dessiner_entite(stdscr, obs, SOL_ECRAN, h, w)
         for bon in jeu.bonus: dessiner_entite(stdscr, bon, SOL_ECRAN, h, w)
 
-        hud_score = f"Score: {int(jeu.score)} | Bedos: {jeu.bedos} | {jeu.nom_joueur}"
+        hud_score = f"Score: {int(jeu.score)} | Bédos: {jeu.bedos} | {jeu.nom_joueur}"
         safe_addstr(stdscr, 1, 2, hud_score, h, w)
         safe_addstr(stdscr, 2, 2, f"Mode: {difficulte}", h, w)
 

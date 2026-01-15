@@ -366,7 +366,7 @@ def dessiner_ecran_setup(surface, fonts, nom_actuel, difficulte_actuelle, assets
         pygame.draw.line(surface, NOIR, (cursor_x, rect_input.top + 15), (cursor_x, rect_input.bottom - 15), 3)
 
     y_diff = y_start_content + 200
-    dessiner_texte_centre(surface, fonts['menu'], "DIFFICULTE :", BLANC, y_diff)
+    dessiner_texte_centre(surface, fonts['menu'], "DIFFICULTÉ :", BLANC, y_diff)
     
     rect_diff = pygame.Rect((VIRTUAL_W - input_w)//2, y_diff + 50, input_w, input_h)
     
@@ -432,7 +432,7 @@ def dessiner_tuto(surface, fonts, img_titre, assets_keys, float_offset):
     else:
         dessiner_texte_centre(surface, fonts['titre'], "COMMENT JOUER ?", JAUNE, 150)
 
-    texte_histoire = "C'est le premier jour des cours et tu es en retard ! Bastien va au CSND avec ses rollers et pendant sa route il doit esquiver voitures, camions et policiers, sans oublier de prendre quelques bedos sur la route !"
+    texte_histoire = "C'est le premier jour des cours et tu es en retard ! Bastien va au CSND avec ses rollers et pendant sa route il doit esquiver voitures, camions et policiers, sans oublier de prendre quelques bédos sur la route !"
     
     def rendre_texte_wrap(txt, font, color, max_width):
         mots = txt.split(' ')
@@ -494,7 +494,7 @@ def dessiner_tuto(surface, fonts, img_titre, assets_keys, float_offset):
     y_systeme = y_controles + gap_lines * 2 + 30 
     
     if assets_keys['r']:
-        dessiner_ligne_controles([assets_keys['r']], "Restart apres le game over", y_systeme)
+        dessiner_ligne_controles([assets_keys['r']], "Restart après le game over", y_systeme)
         
     if assets_keys['esc']:
         dessiner_ligne_controles([assets_keys['esc']], "Retour au menu", y_systeme + gap_lines)
@@ -621,7 +621,7 @@ def dessiner_scores_top(surface, fonts, assets_scores, assets_keys, float_offset
     draw_col_top("JOUEUR", col_x_top['joueur'], y_list - 40, ORANGE)
     draw_col_top("POINTS", col_x_top['points'], y_list - 40, ORANGE)
     draw_col_top("VERSION", col_x_top['vers'], y_list - 40, ORANGE)
-    draw_col_top("DIFFICULTE", col_x_top['diff'], y_list - 40, ORANGE)
+    draw_col_top("DIFFICULTÉ", col_x_top['diff'], y_list - 40, ORANGE)
 
     if len(top_scores) > 3:
         for i in range(3, min(len(top_scores), 10)):
@@ -662,7 +662,7 @@ def dessiner_scores_perso(surface, fonts, assets_scores, assets_keys, float_offs
     surface.blit(bg_list, rect_bg_list)
 
     y_content = rect_bg_list.top + 40
-    dessiner_texte_centre(surface, fonts['menu'], f"10 DERNIERES PARTIES DE {nom_joueur.upper()}", JAUNE, y_content)
+    dessiner_texte_centre(surface, fonts['menu'], f"10 DERNIÈRES PARTIES DE {nom_joueur.upper()}", JAUNE, y_content)
     y_content += 60
     
     # SYSTEME DE COLONNES
@@ -686,9 +686,9 @@ def dessiner_scores_perso(surface, fonts, assets_scores, assets_keys, float_offs
 
     draw_col("SCORE", col_x['score'], ORANGE)
     draw_col("DIST", col_x['dist'], ORANGE)
-    draw_col("BEDOS", col_x['bedos'], ORANGE)
+    draw_col("BÉDOS", col_x['bedos'], ORANGE)
     draw_col("VERSION", col_x['ver'], ORANGE)
-    draw_col("DIFFICULTE", col_x['diff'], ORANGE)
+    draw_col("DIFFICULTÉ", col_x['diff'], ORANGE)
     draw_col("DATE", col_x['date'], ORANGE)
     
     y_content += 50
@@ -966,7 +966,7 @@ def main():
                         elif rect_score_hist.collidepoint(mx, my):
                             game_state = "SCORES_HIST"
                         elif rect_score_all.collidepoint(mx, my):
-                            webbrowser.open("https://thouvrun.com/scores") 
+                            webbrowser.open("https://thouvrun.com") 
 
                     elif game_state in ["TUTO", "SCORES_TOP", "SCORES_HIST"]:
                         if not is_dragging_volume: pass
