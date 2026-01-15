@@ -1714,47 +1714,134 @@
         "score_total": 26,
         "distance": 26,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "14/01/2026 23:02"
+        "version": "Graphique",
+        "date": "14/01/2026 23:02",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "TestBDD",
         "score_total": 17,
         "distance": 17,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "15/01/2026 00:19"
+        "version": "Graphique",
+        "date": "15/01/2026 00:19",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "TestBDD2",
         "score_total": 154,
         "distance": 104,
         "bedos": 1,
-        "version": "Graphique (NORMALE)",
-        "date": "15/01/2026 00:56"
+        "version": "Graphique",
+        "date": "15/01/2026 00:56",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "TestBDD2",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
-        "date": "15/01/2026 00:57"
+        "version": "Graphique",
+        "date": "15/01/2026 00:57",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "TestBDD",
         "score_total": 474,
         "distance": 274,
         "bedos": 4,
-        "version": "Graphique (NORMALE)",
-        "date": "15/01/2026 18:50"
+        "version": "Graphique",
+        "date": "15/01/2026 18:50",
+        "difficulte": "NORMALE"
     },
     {
         "nom": "Test BDD",
         "score_total": 213,
         "distance": 163,
         "bedos": 1,
-        "version": "Console (NORMALE)",
-        "date": "15/01/2026 19:10"
+        "version": "Console",
+        "date": "15/01/2026 19:10",
+        "difficulte": "NORMALE"
+    },
+    {
+        "nom": "PENE",
+        "score_total": 203,
+        "distance": 103,
+        "bedos": 2,
+        "version": "Graphique",
+        "date": "15/01/2026 22:01",
+        "difficulte": "NORMALE"
+    },
+    {
+        "bedos": 0,
+        "date": "15/01/2026 21:59",
+        "difficulte": "NORMALE",
+        "distance": 153,
+        "nom": "PENE",
+        "score_total": 153,
+        "version": "Graphique (NORMALE)"
+    },
+    {
+        "bedos": 0,
+        "date": "15/01/2026 21:55",
+        "difficulte": "NORMALE",
+        "distance": 55,
+        "nom": "Player1",
+        "score_total": 55,
+        "version": "Graphique (NORMALE)"
+    },
+    {
+        "bedos": 0,
+        "date": "15/01/2026 21:57",
+        "difficulte": "NORMALE",
+        "distance": 36,
+        "nom": "Player1",
+        "score_total": 36,
+        "version": "Graphique (NORMALE)"
+    },
+    {
+        "bedos": 0,
+        "date": "15/01/2026 21:56",
+        "difficulte": "NORMALE",
+        "distance": 29,
+        "nom": "Player1",
+        "score_total": 29,
+        "version": "Graphique (NORMALE)"
+    },
+    {
+        "bedos": 0,
+        "date": "15/01/2026 21:58",
+        "difficulte": "NORMALE",
+        "distance": 28,
+        "nom": "Player1",
+        "score_total": 28,
+        "version": "Console (NORMALE)"
+    },
+    {
+        "bedos": 0,
+        "date": "15/01/2026 21:56",
+        "difficulte": "NORMALE",
+        "distance": 18,
+        "nom": "Player1",
+        "score_total": 18,
+        "version": "Graphique (NORMALE)"
+    },
+    {
+        "bedos": 0,
+        "date": "15/01/2026 21:56",
+        "difficulte": "NORMALE",
+        "distance": 18,
+        "nom": "Player1",
+        "score_total": 18,
+        "version": "Graphique (NORMALE)"
+    },
+    {
+        "nom": "PENE",
+        "score_total": 16,
+        "distance": 16,
+        "bedos": 0,
+        "version": "Graphique (NORMALE)",
+        "date": "15/01/2026 22:14",
+        "difficulte": "NORMALE"
     }
 ]

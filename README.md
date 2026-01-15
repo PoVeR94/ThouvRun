@@ -55,7 +55,15 @@ Vois tes scores, ceux de tes amis, et sois numéro 1! 🥇
 
 ## � Synchronisation des Scores (Développeurs)
 
-**⚠️ IMPORTANT:** Avant de faire `git push`, synchronise les scores:
+### ✅ AUTOMATIQUE (Recommandé!)
+
+Les scores se synchronisent **automatiquement** avant chaque `git push` grâce à un git hook.
+
+```bash
+git push  # C'est tout! Les scores se synchro automatiquement
+```
+
+### 🔧 MANUEL (Si le hook ne fonctionne pas)
 
 ```bash
 python sync_scores_before_push.py
@@ -63,8 +71,6 @@ git add data/thouv_scores.json
 git commit -m "Update scores"
 git push
 ```
-
-Ça évite de perdre les scores joués entre deux déploiements.
 
 ---
 
