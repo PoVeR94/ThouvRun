@@ -35,9 +35,25 @@ REM Verifier pip
 echo [*] Verification de pip...
 pip --version >nul 2>&1
 if errorlevel 1 (
-    echo [ERREUR] pip n'est pas disponible
-    pause
-    exit /b 1
+    echo.
+    echo [!] pip non detecte, reinstallation automatique...
+    echo.
+    python -m ensurepip --upgrade
+    
+    if errorlevel 1 (
+        echo [ERREUR] Impossible de reinstaller pip
+        echo.
+        echo Solutions:
+        echo 1. Reinstalle Python 3.12: https://www.python.org/downloads/
+        echo 2. Coche "Add Python to PATH" durant l'installation
+        echo 3. Relance ce script
+        echo.
+        pause
+        exit /b 1
+    )
+    
+    echo [OK] pip reinstalle!
+    echo.
 )
 echo [OK] pip disponible
 echo.
