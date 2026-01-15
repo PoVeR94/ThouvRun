@@ -71,7 +71,7 @@ echo.
 
 REM Utiliser un mirror HTTP pour eviter les problemes SSL
 echo [*] Utilisation d'un mirror PyPI (HTTP pour eviter SSL)...
-python -m pip install --index-url http://mirrors.aliyun.com/pypi/simple/ --no-cache-dir -r requirements-dev.txt
+python -m pip install --index-url https://pypi.tsinghua.edu.cn/simple --trusted-host pypi.tsinghua.edu.cn --no-cache-dir -r requirements-dev.txt
 
 if errorlevel 1 (
     echo.
