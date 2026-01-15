@@ -833,7 +833,7 @@ def main():
         
         'btn_best': charger_image_redimensionnee("top_scores.png", 400),
         'btn_hist': charger_image_redimensionnee("historique.png", 400), 
-        'btn_all': pygame.image.load("all_scores.png").convert_alpha() if os.path.exists("all_scores.png") else None,
+        'btn_all': charger_image_redimensionnee("all_scores.png", 400),
         
         'podium_1': charger_image_redimensionnee("Podium_1.png", 180),
         'podium_2': charger_image_redimensionnee("Podium_2.png", 140),
@@ -966,7 +966,7 @@ def main():
                         elif rect_score_hist.collidepoint(mx, my):
                             game_state = "SCORES_HIST"
                         elif rect_score_all.collidepoint(mx, my):
-                            webbrowser.open("https://thouvrun.com") 
+                            webbrowser.open("https://www.thouvrun.com") 
 
                     elif game_state in ["TUTO", "SCORES_TOP", "SCORES_HIST"]:
                         if not is_dragging_volume: pass
