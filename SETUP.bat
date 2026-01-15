@@ -20,23 +20,29 @@ if errorlevel 1 (
     echo [*] Python non detecte, installation automatique...
     echo.
     
-    REM Telecharger et installer Python
-    powershell -Command "& {
-        $pythonUrl = 'https://www.python.org/ftp/python/3.12.1/python-3.12.1-amd64.exe'
-        $pythonInstaller = Join-Path $env:TEMP 'python-installer.exe'
-        
-        Write-Host '[*] Telechargement de Python...'
-        (New-Object System.Net.WebClient).DownloadFile($pythonUrl, $pythonInstaller)
-        
-        Write-Host '[*] Installation de Python...'
-        cmd /c `$pythonInstaller /quiet InstallAllUsers=1 PrependPath=1
-        
-        Remove-Item $pythonInstaller -Force -ErrorAction SilentlyContinue
-    }"
+    REM Telecharger et installer Python (sans PowerShell pour eviter les problemes de policies)
+    set "pythonUrl=https://www.python.org/ftp/python/3.12.1/python-3.12.1-amd64.exe"
+    set "pythonInstaller=%TEMP%\python-installer.exe"
+    
+    echo [*] Telechargement de Python (cela peut prendre 1-2 minutes)...
+    
+    REM Utiliser certutil (disponible sur tous les Windows) pour telecharger
+    certutil -urlcache -split -f "!pythonUrl!" "!pythonInstaller!" >nul 2>&1
+    
+    if not exist "!pythonInstaller!" (
+        echo [ERREUR] Impossible de telecharger Python
+        echo Essaye une installation manuelle: https://www.python.org/downloads/
+        pause
+        exit /b 1
+    )
+    
+    echo [*] Installation de Python...
+    "!pythonInstaller!" /quiet InstallAllUsers=1 PrependPath=1
+    
+    del "!pythonInstaller!" /f /q 2>nul
     
     if errorlevel 1 (
-        echo [ERREUR] Impossible de telecharger/installer Python
-        echo Essaye une installation manuelle: https://www.python.org/downloads/
+        echo [ERREUR] Impossible d'installer Python
         pause
         exit /b 1
     )
