@@ -33,7 +33,7 @@ echo.
 
 REM Verifier pip
 echo [*] Verification de pip...
-pip --version >nul 2>&1
+python -m pip --version >nul 2>&1
 if errorlevel 1 (
     echo.
     echo [!] pip non detecte, reinstallation automatique...
@@ -55,7 +55,7 @@ if errorlevel 1 (
     echo [OK] pip reinstalle!
     echo.
 )
-echo [OK] pip disponible
+echo [OK] pip disponible (via python -m pip)
 echo.
 
 REM ========================================
@@ -70,7 +70,7 @@ echo     - requests (sync scores)
 echo.
 
 REM Installer les dépendances avec requirements-dev.txt
-pip install -r requirements-dev.txt
+python -m pip install -r requirements-dev.txt
 
 if errorlevel 1 (
     echo.
