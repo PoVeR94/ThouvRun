@@ -69,21 +69,31 @@ echo     - flask-cors (API)
 echo     - requests (sync scores)
 echo.
 
-REM Etape 1: Mettre a jour les certificats SSL de Python
-echo [*] Mise a jour des certificats SSL...
-python -m pip install --upgrade --no-cache-dir certifi >nul 2>&1
+REM Desactiver verification SSL (probleme systeme Windows)
+set PYTHONHTTPSVERIFY=0
 
-REM Etape 2: Installer les dependances sans verification SSL
+REM Installer les dependances
 python -m pip install --no-cache-dir -r requirements-dev.txt
 
 if errorlevel 1 (
     echo.
     echo [ERREUR] Impossible d'installer les dependances
-    echo Verifiez votre connexion internet et relancez ce script
+    echo.
+    echo Ce probleme est generalement du a:
+    echo - Un antivirus/firewall bloquant PyPI
+    echo - Un proxy d'entreprise interceptant SSL
+    echo.
+    echo Solutions:
+    echo 1. Desactiver temporairement l'antivirus
+    echo 2. Verifier votre connexion internet
+    echo 3. Relancer ce script
     echo.
     pause
     exit /b 1
 )
+
+REM Reactiver verification SSL
+set PYTHONHTTPSVERIFY=1
 
 echo [OK] Dependances installees!
 
