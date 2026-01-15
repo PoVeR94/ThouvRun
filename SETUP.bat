@@ -17,16 +17,38 @@ python --version >nul 2>&1
 
 if errorlevel 1 (
     echo.
-    echo [ERREUR] Python n'est pas installe ou pas dans le PATH
+    echo [*] Python non detecte, installation automatique...
     echo.
-    echo Solutions:
-    echo 1. Telecharge Python: https://www.python.org/downloads/
-    echo 2. Coche "Add Python to PATH" durant l'installation
-    echo 3. Redémarre ton PC
-    echo 4. Relance ce script
+    
+    REM Telecharger et installer Python
+    powershell -Command "& {
+        $pythonUrl = 'https://www.python.org/ftp/python/3.12.1/python-3.12.1-amd64.exe'
+        $pythonInstaller = '%TEMP%\python-installer.exe'
+        
+        echo '[*] Telechargement de Python...'
+        (New-Object System.Net.WebClient).DownloadFile($pythonUrl, $pythonInstaller)
+        
+        echo '[*] Installation de Python...'
+        cmd /c $pythonInstaller /quiet InstallAllUsers=1 PrependPath=1
+        
+        Remove-Item $pythonInstaller -Force
+    }"
+    
+    if errorlevel 1 (
+        echo [ERREUR] Impossible de telecharger/installer Python
+        echo Essaye une installation manuelle: https://www.python.org/downloads/
+        pause
+        exit /b 1
+    )
+    
     echo.
+    echo [OK] Python installe!
+    echo.
+    echo Appuie sur une touche pour continuer...
     pause
-    exit /b 1
+    REM Relancer le script automatiquement
+    call "%~f0"
+    exit /b 0
 )
 
 echo [OK] Python trouve!

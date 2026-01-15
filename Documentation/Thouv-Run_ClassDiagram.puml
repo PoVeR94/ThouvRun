@@ -1,0 +1,170 @@
+@startuml Thouv-Run Architecture Simple
+
+' === STYLE ===
+skinparam backgroundColor FFFFFF
+skinparam shadowing false
+skinparam RoundCorner 0
+
+' ========== MOTEUR DE JEU ==========
+package "MOTEUR DE JEU" #DDFFDD {
+    note as N1
+        LOGIQUE PURE
+        Pas de graphisme ici
+        Juste la physique du jeu
+    end note
+    
+    class Entite {
+        x, y : position
+        width, height : taille
+        type : string
+        --
+        rect_collision()
+        update()
+    }
+    
+    class Thouverez {
+        is_jumping
+        jump_vel
+        --
+        sauter_court()
+        sauter_long()
+        update()
+    }
+    
+    class Jeu {
+        joueur
+        obstacles[]
+        bonus[]
+        score, distance, bedos
+        --
+        update()
+        fin_partie()
+    }
+    
+    Entite <|-- Thouverez : herite
+    Jeu --> Thouverez : possede
+    Jeu --> Entite : contient
+}
+
+' ========== SAUVEGARDE ==========
+package "SAUVEGARDE DONNEES" #FFDDDD {
+    note as N2
+        TRIPLE COUCHE SYNC
+        1. Sauvegarde LOCAL rapide
+        2. Envoie a l'API (async)
+        3. Recoit scores du serveur
+        => ZERO perte de donnees
+    end note
+    
+    class GestionScores {
+        --
+        charger_scores()
+        sauvegarder_nouveau_score()
+        synchroniser_serveur()
+    }
+    
+    class FichierJSON {
+        thouv_scores.json
+        --
+        lecture/ecriture
+    }
+    
+    GestionScores --> FichierJSON
+}
+
+' ========== AUDIO ==========
+package "AUDIO" #FFFFDD {
+    note as N3
+        Gestion des sons
+        Effets sonores du jeu
+    end note
+    
+    class GestionnaireMusique {
+        titre_actuel
+        volume
+        --
+        jouer_saut()
+        jouer_bedo()
+    }
+}
+
+' ========== INTERFACES ==========
+package "INTERFACES" #DDDDFF {
+    note as N4
+        Deux modes de jeu:
+        - Pygame (graphique 60 FPS)
+        - Terminal (ASCII retro)
+    end note
+    
+    class InterfaceGraphique {
+        pygame
+        --
+        dessiner_menu()
+        dessiner_jeu()
+    }
+    
+    class InterfaceTerminal {
+        curses
+        --
+        dessiner_menu()
+        dessiner_jeu()
+    }
+}
+
+' ========== SERVEUR ==========
+package "SERVEUR" #FFDDFF {
+    note as N5
+        RAILWAY.APP
+        Serveur en ligne
+        Certificat SSL auto
+    end note
+    
+    class APIFlask {
+        Flask 3.0
+        --
+        POST /api/scores
+        GET /api/scores
+    }
+    
+    class BaseDonnees {
+        SQLite
+        (Railway)
+    }
+    
+    APIFlask --> BaseDonnees
+}
+
+' ========== LEADERBOARD WEB ==========
+package "LEADERBOARD" #DDFFFF {
+    note as N6
+        191 scores deduplicates
+        Affiche tous les resultats
+        Auto-refresh 10 secondes
+    end note
+    
+    class Leaderboard {
+        HTML5 + JS
+        --
+        afficher_tableau()
+        trier_par_joueur()
+        auto_refresh()
+    }
+}
+
+' ========== CONNEXIONS PRINCIPALES ==========
+
+Jeu --> GestionScores : appelle\npour sauvegarder
+Jeu --> GestionnaireMusique : appelle\npour audio
+
+InterfaceGraphique --> Jeu : controle
+InterfaceTerminal --> Jeu : controle
+InterfaceGraphique --> GestionnaireMusique : controle volume
+InterfaceTerminal --> GestionnaireMusique : controle volume
+
+GestionScores --> APIFlask : envoie score\n(thread async)
+
+APIFlask --> GestionScores : retourne scores\n(sync backup)
+
+Leaderboard --> APIFlask : charge scores\ntoutes les 10s
+
+@enduml

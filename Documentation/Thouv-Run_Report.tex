@@ -1,15 +1,59 @@
 \documentclass[11pt,a4paper,french]{article}
-\usepackage[utf-8]{inputenc}
 \usepackage[margin=2cm]{geometry}
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{fancyhdr}
+\usepackage{babel}
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{tcolorbox}
 \usepackage{amsmath}
-\usepackage{babel}
 \usepackage{tikz}
+\usepackage{pifont}
+\usepackage{newunicodechar}
+\newunicodechar{✓}{\ding{51}}
+\newunicodechar{├}{|}
+\newunicodechar{└}{|}
+\newunicodechar{│}{|}
+\newunicodechar{─}{-}
+
+% \checkmark n'existe pas par défaut : on le mappe sur le symbole de pifont
+\newcommand{\checkmark}{\ding{51}}
+
+% --- FIX language=CSS pour listings (CSS n'est pas fourni par défaut) ---
+\lstdefinelanguage{CSS}{
+  morekeywords={@import,@media,@font-face,@keyframes,from,to,important},
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]",
+  morestring=[b]',
+  alsoletter={-},
+}
+
+% --- FIX affichage caractères spéciaux/accents dans lstlisting ---
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\lstset{
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false,
+  upquote=true,
+  literate=
+    {~}{{\textasciitilde}}1
+    {<}{{\textless}}1
+    {>}{{\textgreater}}1
+    {^}{{\textasciicircum}}1
+    {\\}{{\textbackslash}}1
+    {é}{{\'e}}1
+    {è}{{\`e}}1
+    {ê}{{\^e}}1
+    {à}{{\`a}}1
+    {ù}{{\`u}}1
+    {ç}{{\c{c}}}1
+    {ô}{{\^o}}1
+}
 
 % --- CONFIGURATION LISTINGS ---
 \lstset{
@@ -31,7 +75,7 @@
 \cfoot{\thepage}
 
 \title{\textbf{Thouv'Run} \\ \Large Un Jeu de Plateforme Multijoueur}
-\author{Développeur(s) du Projet}
+\author{Paul Vernus}
 \date{Janvier 2026}
 
 \begin{document}
@@ -295,7 +339,7 @@ La synchronisation fonctionne en trois couches :
     \item \textbf{Couche Web} : Leaderboard HTML + API (actualisation 10s)
     \begin{itemize}
         \item Frontend pur (Vanilla JS, pas de framework)
-        \item Récupération de 191 scores dedupliqués
+        \item Récupération de +191 scores dedupliqués
         \item Tri par Points/Distance/Bedos/Date
         \item Recherche par nom de joueur
     \end{itemize}
@@ -405,7 +449,7 @@ Cela garantit qu'aucun score n'est perdu lors d'un déploiement ou redémarrage 
 
 \subsubsection{Animation du Fond}
 
-\textbf{Problème} : Les weeds (mauvaises herbes) du fond n'animaient pas correctement.
+\textbf{Problème} : Les weeds du fond n'animaient pas correctement quand on essayait de les faire pivoter tout en faisant l'animation.
 
 \textbf{Solution} : Après 8 tentatives, implémentation d'une animation diagonale en CSS :
 

@@ -1,0 +1,99 @@
+@startuml Thouv-Run - Score Synchronization Flow
+
+actor Joueur as J
+participant "Moteur Jeu" as Engine
+participant "Gestion Scores\n(gestion_scores.py)" as Scores
+participant "API Serveur\n(Flask)" as API
+database "Backup Local\n(thouv_scores.json)" as LocalFile
+
+== PHASE 1: Fin de Partie ==
+note over J, Engine
+  Le joueur a perdu (collision avec obstacle)
+  Ses stats: Score, Distance, Bedos
+end note
+
+J -> Engine: Partie Terminee
+Engine -> Scores: sauvegarder_nouveau_score(\nnom, score, distance, bedos)
+
+== PHASE 2: Sauvegarde LOCALE (Immédiat - Synchrone) ==
+note over Scores, LocalFile
+  [CRITIQUE] Sauvegarde immédiate et toujours réussie
+  Aucun risque de perte même sans internet!
+end note
+
+Scores -> LocalFile: 1) Charger le fichier JSON existant
+LocalFile --> Scores: [ancien_score_1, ancien_score_2, ...]
+
+Scores -> Scores: 2) Ajouter le nouveau score\n   a la liste
+
+Scores -> LocalFile: 3) Écrire le fichier JSON\n   complet (ancien + nouveau)
+LocalFile --> Scores: Sauvegarde OK sur disque
+
+note right of Scores
+  Le jeu peut continuer maintenant!
+  Les 3 threads suivants s'exécutent
+  en ARRIERE-PLAN (non-bloquants)
+end note
+
+== PHASE 3: Envoi à l'API (Thread 1 - ASYNC) ==
+note over Scores, API
+  [OPTIONAL] Fonctionne hors ligne
+  Timeout court (2 secondes)
+end note
+
+Scores -> Scores: Thread 1 lance:\n_envoyer_score_api()
+
+Scores -[#FF6B6B]> API: POST /api/scores\n(envoyer 1 score)
+
+alt Serveur Répondeur
+  API -> API: Stocker en SQLite
+  API --> Scores: 200 OK
+else Pas de Connexion
+  note right of API
+    Pas grave! Le score est
+    déjà sauvé localement
+  end note
+  Scores -> Scores: timeout = continuer
+end
+
+== PHASE 4: Synchroniser Backup (Thread 2 - ASYNC) ==
+note over Scores, API
+  [IMPORTANT] Télécharge TOUS les scores du serveur
+  pour que le backup local soit toujours à jour
+  
+  Cela evite la perte de données lors d'un
+  redéploiement ou crash serveur!
+end note
+
+Scores -> Scores: Thread 2 lance:\n_synchroniser_backup_depuis_serveur()
+
+Scores -[#4ECDC4]> API: GET /api/scores?limit=500\n(récupérer TOUS les scores)
+
+API -> API: Récupérer depuis SQLite
+API --> Scores: [score1, score2, ..., score191]
+
+Scores -> Scores: Fusionner les listes:\n- Garder les locaux\n- Ajouter les serveur\n  (si pas déjà local)
+
+Scores -> LocalFile: Mettre à jour le backup JSON\n avec les scores fusionnés
+
+note over LocalFile
+  Le backup est maintenant
+  en sync avec le serveur!
+end note
+
+== PHASE 5: Leaderboard Web (Autre Navigateur) ==
+note over Joueur, API
+  ⏱️ Mise à jour toutes les 10 secondes
+  [AUTO-REFRESH]puis n'importe quel navigateur
+end note
+
+Joueur -> Joueur: Ouvre thouvrun.com\n dans un autre onglet
+
+Joueur -> API: Le leaderboard web\nappelle toutes les 10s:\nGET /api/scores?limit=500
+
+API -> API: Récupérer depuis SQLite
+API --> Joueur: [191 scores JSON]
+
+Joueur -> Joueur: Afficher tableau avec:\n- Classement par points\n- Tri par distance/date/bedos\n- Recherche par joueur
+
+@enduml
