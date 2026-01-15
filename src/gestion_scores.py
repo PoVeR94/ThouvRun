@@ -181,18 +181,19 @@ def _nettoyer_entree(score_dict):
     s = score_dict.copy()
     raw_version = s.get('version', 'Inconnue')
     
-    # Si la difficulté n'est pas déjà un champ à part entière
-    if 'difficulte' not in s:
-        if "(DIFFICILE)" in raw_version:
+    # TOUJOURS nettoyer les doublons de difficulté dans VERSION
+    if "(DIFFICILE)" in raw_version:
+        s['version'] = raw_version.replace("(DIFFICILE)", "").strip()
+        if 'difficulte' not in s:
             s['difficulte'] = "DIFFICILE"
-            s['version'] = raw_version.replace("(DIFFICILE)", "").strip()
-        elif "(NORMALE)" in raw_version:
+    elif "(NORMALE)" in raw_version:
+        s['version'] = raw_version.replace("(NORMALE)", "").strip()
+        if 'difficulte' not in s:
             s['difficulte'] = "NORMALE"
-            s['version'] = raw_version.replace("(NORMALE)", "").strip()
-        else:
-            s['difficulte'] = "NORMALE" # Par défaut
-            s['version'] = raw_version
-            
+    else:
+        if 'difficulte' not in s:
+            s['difficulte'] = "NORMALE"  # Par défaut
+    
     # Nettoyage cosmétique
     s['version'] = s['version'].replace("Version ", "").strip()
     
