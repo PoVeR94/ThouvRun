@@ -392,24 +392,6 @@
         "distance": 16,
         "bedos": 0,
         "version": "Console",
-        "date": "10/01/2026 14:55",
-        "difficulte": "NORMALE"
-    },
-    {
-        "nom": "testing limits",
-        "score_total": 16,
-        "distance": 16,
-        "bedos": 0,
-        "version": "Console",
-        "date": "10/01/2026 14:55",
-        "difficulte": "NORMALE"
-    },
-    {
-        "nom": "testing limits",
-        "score_total": 16,
-        "distance": 16,
-        "bedos": 0,
-        "version": "Console",
         "date": "10/01/2026 14:59",
         "difficulte": "NORMALE"
     },
@@ -1085,33 +1067,6 @@
         "distance": 16,
         "bedos": 0,
         "version": "Graphique",
-        "date": "11/01/2026 22:38",
-        "difficulte": "NORMALE"
-    },
-    {
-        "nom": "testing limits",
-        "score_total": 16,
-        "distance": 16,
-        "bedos": 0,
-        "version": "Graphique",
-        "date": "11/01/2026 22:39",
-        "difficulte": "NORMALE"
-    },
-    {
-        "nom": "testing limits",
-        "score_total": 16,
-        "distance": 16,
-        "bedos": 0,
-        "version": "Graphique",
-        "date": "11/01/2026 22:39",
-        "difficulte": "NORMALE"
-    },
-    {
-        "nom": "testing limits",
-        "score_total": 16,
-        "distance": 16,
-        "bedos": 0,
-        "version": "Graphique",
         "date": "11/01/2026 22:39",
         "difficulte": "NORMALE"
     },
@@ -1279,15 +1234,6 @@
     },
     {
         "nom": "testing limits",
-        "score_total": 17,
-        "distance": 17,
-        "bedos": 0,
-        "version": "Graphique",
-        "date": "12/01/2026 22:35",
-        "difficulte": "NORMALE"
-    },
-    {
-        "nom": "testing limits",
         "score_total": 25,
         "distance": 16,
         "bedos": 0,
@@ -1317,15 +1263,6 @@
         "nom": "testing limits",
         "score_total": 17,
         "distance": 11,
-        "bedos": 0,
-        "version": "Graphique",
-        "date": "12/01/2026 22:36",
-        "difficulte": "DIFFICILE"
-    },
-    {
-        "nom": "testing limits",
-        "score_total": 18,
-        "distance": 12,
         "bedos": 0,
         "version": "Graphique",
         "date": "12/01/2026 22:36",
@@ -1398,15 +1335,6 @@
         "nom": "testing limits",
         "score_total": 25,
         "distance": 16,
-        "bedos": 0,
-        "version": "Graphique",
-        "date": "12/01/2026 22:38",
-        "difficulte": "DIFFICILE"
-    },
-    {
-        "nom": "testing limits",
-        "score_total": 25,
-        "distance": 17,
         "bedos": 0,
         "version": "Graphique",
         "date": "12/01/2026 22:38",
