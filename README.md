@@ -53,7 +53,22 @@ Vois tes scores, ceux de tes amis, et sois numéro 1! 🥇
 
 ---
 
-## 💡 Astuces pour Scorer Haut
+## � Synchronisation des Scores (Développeurs)
+
+**⚠️ IMPORTANT:** Avant de faire `git push`, synchronise les scores:
+
+```bash
+python sync_scores_before_push.py
+git add data/thouv_scores.json
+git commit -m "Update scores"
+git push
+```
+
+Ça évite de perdre les scores joués entre deux déploiements.
+
+---
+
+## �💡 Astuces pour Scorer Haut
 
 1. **Maîtrise le timing** - Les sauts doivent être précis!
 2. **Anticipe les obstacles** - Commence à sauter avant!
