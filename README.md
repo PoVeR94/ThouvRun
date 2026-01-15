@@ -24,7 +24,7 @@ Le meilleur? **Tes scores se synchronisent automatiquement en ligne** - pas beso
 
 ### 1️⃣ **Installation (une seule fois)**
 
-Double-clic sur: **`scripts/SETUP.bat`**
+Double-clic sur: **`SETUP.bat`**
 
 Ça installe automatiquement tout ce qu'il faut (Python, dépendances, etc.)
 
@@ -33,7 +33,7 @@ Double-clic sur: **`scripts/SETUP.bat`**
 Choisis la version que tu préfères:
 
 #### 🎨 **Version Graphique (Pygame)** - Recommandée!
-Double-clic sur: **`scripts/Thouv-Run-Graphique.bat`**
+Double-clic sur: **`Thouv-Run-Graphique.bat`**
 
 ```
 🕹️ Contrôles:
@@ -45,7 +45,7 @@ Double-clic sur: **`scripts/Thouv-Run-Graphique.bat`**
 ```
 
 #### 🖥️ **Version Terminal (Retro)**
-Double-clic sur: **`scripts/Thouv-Run-Terminal.bat`**
+Double-clic sur: **`Thouv-Run-Terminal.bat`**
 
 ```
 ⌨️  Contrôles:
@@ -56,7 +56,7 @@ Double-clic sur: **`scripts/Thouv-Run-Terminal.bat`**
 
 ### 3️⃣ **Voir le Leaderboard**
 
-Double-clic sur: **`scripts/Thouv-Leaderboard.bat`**
+Double-clic sur: **`Thouv-Leaderboard.bat`**
 
 Ça lance automatiquement le serveur et ouvre le leaderboard dans ton navigateur!
 
@@ -64,7 +64,9 @@ Double-clic sur: **`scripts/Thouv-Leaderboard.bat`**
 
 ## 🏆 Leaderboard en Ligne
 
-**Accessible 24/7:** https://thouvrun-production.up.railway.app/scores.html
+**Accessible 24/7:** https://www.thouvrun.com
+
+Ou directement sur Railway: https://thouvrun-production.up.railway.app/scores.html
 
 Vois tes scores, ceux de tes amis, et sois numéro 1! 🥇
 
@@ -80,8 +82,8 @@ Vois tes scores, ceux de tes amis, et sois numéro 1! 🥇
 
 1. **Maîtrise le timing** - Les sauts doivent être précis!
 2. **Anticipe les obstacles** - Commence à sauter avant la plateforme
-3. **Utilise les rebonds** - Certains obstacles peuvent te propulser
-4. **Entraîne-toi** - Commence en facile pour apprendre
+3. **Reste concentré** - C'est vite difficile, reste zen!
+4. **Entraîne-toi** - Plus tu joues, mieux tu deviens
 
 ---
 
@@ -114,12 +116,12 @@ C'est le langage du jeu. L'installation est automatique - tu appuies juste sur S
 
 ---
 
-## 🎮 Astuces d'Experts
+## 🎮 Conseils de Joueurs Expérimentés
 
-- **Sprint**: Agrippe ta souris et saute rapidement!
-- **Momentum**: Garde ton élan avant les obstacles
-- **Double-jump**: Certaines zones permettent de sauter deux fois
-- **Pratique mode**: Le mode sandbox t'aide à apprendre
+- **Rythme constant**: Saute régulièrement pour maintenir ton élan
+- **Anti-obstacles**: Regarde loin devant et prépare tes mouvements
+- **Patience**: Certains niveaux sont plus durs, recommence!
+- **Challenge friends**: Vise les meilleurs scores du leaderboard
 
 ---
 
