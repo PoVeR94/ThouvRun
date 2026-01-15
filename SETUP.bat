@@ -23,15 +23,15 @@ if errorlevel 1 (
     REM Telecharger et installer Python
     powershell -Command "& {
         $pythonUrl = 'https://www.python.org/ftp/python/3.12.1/python-3.12.1-amd64.exe'
-        $pythonInstaller = '%TEMP%\python-installer.exe'
+        $pythonInstaller = Join-Path $env:TEMP 'python-installer.exe'
         
-        echo '[*] Telechargement de Python...'
+        Write-Host '[*] Telechargement de Python...'
         (New-Object System.Net.WebClient).DownloadFile($pythonUrl, $pythonInstaller)
         
-        echo '[*] Installation de Python...'
-        cmd /c $pythonInstaller /quiet InstallAllUsers=1 PrependPath=1
+        Write-Host '[*] Installation de Python...'
+        cmd /c `$pythonInstaller /quiet InstallAllUsers=1 PrependPath=1
         
-        Remove-Item $pythonInstaller -Force
+        Remove-Item $pythonInstaller -Force -ErrorAction SilentlyContinue
     }"
     
     if errorlevel 1 (
