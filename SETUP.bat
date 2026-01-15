@@ -69,12 +69,18 @@ echo     - flask-cors (API)
 echo     - requests (sync scores)
 echo.
 
-REM Fixer certificats SSL + installer dependances
-python -m pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org -r requirements-dev.txt
+REM Etape 1: Mettre a jour les certificats SSL de Python
+echo [*] Mise a jour des certificats SSL...
+python -m pip install --upgrade --no-cache-dir certifi >nul 2>&1
+
+REM Etape 2: Installer les dependances sans verification SSL
+python -m pip install --no-cache-dir -r requirements-dev.txt
 
 if errorlevel 1 (
     echo.
     echo [ERREUR] Impossible d'installer les dependances
+    echo Verifiez votre connexion internet et relancez ce script
+    echo.
     pause
     exit /b 1
 )

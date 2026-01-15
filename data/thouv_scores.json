@@ -1779,7 +1779,7 @@
         "distance": 153,
         "nom": "PENE",
         "score_total": 153,
-        "version": "Graphique (NORMALE)"
+        "version": "Graphique"
     },
     {
         "bedos": 0,
@@ -1788,7 +1788,7 @@
         "distance": 55,
         "nom": "Player1",
         "score_total": 55,
-        "version": "Graphique (NORMALE)"
+        "version": "Graphique"
     },
     {
         "bedos": 0,
@@ -1797,7 +1797,7 @@
         "distance": 36,
         "nom": "Player1",
         "score_total": 36,
-        "version": "Graphique (NORMALE)"
+        "version": "Graphique"
     },
     {
         "bedos": 0,
@@ -1806,7 +1806,7 @@
         "distance": 29,
         "nom": "Player1",
         "score_total": 29,
-        "version": "Graphique (NORMALE)"
+        "version": "Graphique"
     },
     {
         "bedos": 0,
@@ -1815,7 +1815,7 @@
         "distance": 28,
         "nom": "Player1",
         "score_total": 28,
-        "version": "Console (NORMALE)"
+        "version": "Console"
     },
     {
         "bedos": 0,
@@ -1824,7 +1824,7 @@
         "distance": 18,
         "nom": "Player1",
         "score_total": 18,
-        "version": "Graphique (NORMALE)"
+        "version": "Graphique"
     },
     {
         "bedos": 0,
@@ -1833,14 +1833,14 @@
         "distance": 18,
         "nom": "Player1",
         "score_total": 18,
-        "version": "Graphique (NORMALE)"
+        "version": "Graphique"
     },
     {
         "nom": "PENE",
         "score_total": 16,
         "distance": 16,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
+        "version": "Graphique",
         "date": "15/01/2026 22:14",
         "difficulte": "NORMALE"
     },
@@ -1849,7 +1849,7 @@
         "score_total": 35,
         "distance": 35,
         "bedos": 0,
-        "version": "Console (NORMALE)",
+        "version": "Console",
         "date": "15/01/2026 22:59",
         "difficulte": "NORMALE"
     },
@@ -1858,7 +1858,7 @@
         "score_total": 26,
         "distance": 26,
         "bedos": 0,
-        "version": "Graphique (NORMALE)",
+        "version": "Graphique",
         "date": "15/01/2026 23:02",
         "difficulte": "NORMALE"
     },
@@ -1867,8 +1867,17 @@
         "score_total": 152,
         "distance": 102,
         "bedos": 1,
-        "version": "Graphique (NORMALE)",
+        "version": "Graphique",
         "date": "15/01/2026 23:03",
         "difficulte": "NORMALE"
+    },
+    {
+        "bedos": 0,
+        "date": "15/01/2026 23:39",
+        "difficulte": "NORMALE",
+        "distance": 17,
+        "nom": "PENE",
+        "score_total": 17,
+        "version": "Graphique (NORMALE)"
     }
 ]
