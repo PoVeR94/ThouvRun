@@ -92,7 +92,7 @@ class Jeu:
 
     def fin_partie(self, cause):
         self.running = False
-        sauvegarder_nouveau_score(self.nom_joueur, self.score, self.distance, self.bedos, self.version)
+        sauvegarder_nouveau_score(self.nom_joueur, self.score, self.distance, self.bedos, self.version, self.difficulte)
         if cause in ["camion", "voiture"]: self.message_fin = "Tu as ete percute !\nArret maladie pendant 6 mois pour se recuperer !"
         elif cause == "policier": self.message_fin = "ACAB\nTu as ete arrete ! 1 an d'emprisonnement et de 3 750€ d'amende !"
         else: self.message_fin = "G A M E   O V E R"

@@ -233,12 +233,21 @@ def recuperer_historique_joueur(nom_joueur):
     return sorted(scores_perso, key=lambda k: k.get('score_total', 0), reverse=True)
 
 def recuperer_dernieres_parties(nom_joueur, limit=10):
-    """Renvoie les N dernières parties jouées (Chronologique inverse)."""
-    # On charge le fichier brut pour avoir l'ordre chronologique (si append)
+    """Renvoie les N dernières parties jouées (Triées par date décroissante)."""
+    from datetime import datetime
+    
     scores = charger_scores()
     scores_perso = [s for s in scores if s['nom'] == nom_joueur]
-    # On inverse pour avoir les plus récents en premier
-    return scores_perso[::-1][:limit]
+    
+    # Trier par date (format "JJ/MM/YYYY HH:MM")
+    def parse_date(score):
+        try:
+            return datetime.strptime(score.get('date', ''), "%d/%m/%Y %H:%M")
+        except:
+            return datetime.min
+    
+    scores_tries = sorted(scores_perso, key=parse_date, reverse=True)
+    return scores_tries[:limit]
 
 # --- SAUVEGARDE ---
 
