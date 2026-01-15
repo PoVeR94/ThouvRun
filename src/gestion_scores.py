@@ -27,16 +27,16 @@ def _envoyer_score_api(donnees_score):
     except:
         pass  # Silencieux - le score est toujours sauvegardé localement
 
-def _telecharger_scores_api():
+def _telecharger_scores_api(timeout=3):
     """
-    Télécharge tous les scores depuis l'API (timeout court)
+    Télécharge tous les scores depuis l'API
     """
     if not API_ENABLED:
         return []
     
     try:
         api_get_url = API_SERVER_URL.rsplit('/', 1)[0] + "/scores"
-        response = requests.get(api_get_url + "?limit=500", timeout=3)
+        response = requests.get(api_get_url + "?limit=500", timeout=timeout)
         
         if response.status_code == 200:
             return response.json()
@@ -91,13 +91,13 @@ def charger_scores_avec_sync():
     """
     Charge les scores au démarrage du jeu:
     1. Charge les scores locaux
-    2. Essaye de télécharger les scores distants (non-bloquant)
+    2. Télécharge les scores distants avec timeout plus long (5s au démarrage)
     3. Fusionne les deux (pas de doublons)
     """
     scores_locaux = charger_scores()
     
-    # Essayer de récupérer les scores distants (timeout court = pas de blocage)
-    scores_distants = _telecharger_scores_api()
+    # Récupérer les scores distants avec timeout plus long au démarrage (5s)
+    scores_distants = _telecharger_scores_api(timeout=5)
     
     if not scores_distants:
         # Si pas de scores distants, utiliser juste les locaux
