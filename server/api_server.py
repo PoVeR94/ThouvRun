@@ -23,7 +23,7 @@ CORS(app)
 
 # Configuration
 DATABASE = os.environ.get('DATABASE_PATH', os.path.join(os.path.dirname(__file__), '..', 'data', 'scores.db'))
-SCORES_BACKUP = os.environ.get('BACKUP_PATH', os.path.join(os.path.dirname(__file__), '..', 'data', 'server_scores.json'))
+SCORES_BACKUP = os.environ.get('BACKUP_PATH', os.path.join(os.path.dirname(__file__), '..', 'data', 'thouv_scores.json'))
 API_PORT = int(os.environ.get('PORT', 5000))
 
 # Debug: afficher les chemins
