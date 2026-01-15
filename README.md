@@ -66,7 +66,7 @@ git push  # C'est tout! Les scores se synchro automatiquement
 ### 🔧 MANUEL (Si le hook ne fonctionne pas)
 
 ```bash
-python sync_scores_before_push.py
+python scripts/sync_scores_before_push.py
 git add data/thouv_scores.json
 git commit -m "Update scores"
 git push
