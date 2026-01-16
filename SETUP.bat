@@ -57,14 +57,11 @@ if errorlevel 1 (
     echo.
     echo [OK] Python installe!
     echo.
-    echo ========================================
-    echo REDEMARRAGE NECESSAIRE
-    echo ========================================
+    echo [*] Relancement automatique du script...
     echo.
-    echo Ferme cette fenetre et relance SETUP.bat
-    echo pour terminer l'installation.
-    echo.
-    pause
+    
+    REM Relancer le script automatiquement
+    start "" "%~f0"
     exit /b 0
 )
 

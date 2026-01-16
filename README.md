@@ -23,7 +23,14 @@ Le meilleur? **Tes scores se synchronisent automatiquement en ligne** - pas beso
 
 ### 1️⃣ **Installation (une seule fois)**
 
+#### 🪟 Windows
 Double-clic sur: **`SETUP.bat`**
+
+#### 🍎 Mac / 🐧 Linux
+```bash
+chmod +x setup.sh
+./setup.sh
+```
 
 Ça installe automatiquement tout ce qu'il faut (Python, dépendances, etc.)
 
@@ -86,8 +93,8 @@ git push
 ## 🛠️ Configuration Système
 
 **Requirements minimum:**
-- Windows 7 ou supérieur
-- Python 3.8+
+- Windows 7+ / macOS 10.14+ / Linux (Ubuntu 18.04+)
+- Python 3.8+ (installé automatiquement)
 - ~100 MB d'espace disque
 - Connexion internet (pour sync scores)
 
