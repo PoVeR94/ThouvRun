@@ -1,4 +1,5 @@
 @echo off
+setlocal enabledelayedexpansion
 REM ========================================
 REM SETUP Thouv'Run - Installation automatique
 REM Windows
@@ -12,6 +13,12 @@ echo ========================================
 echo.
 echo [*] Systeme detecte: Windows
 echo.
+
+REM Garder la fenetre ouverte en cas d'erreur
+if "%1"=="" (
+    cmd /k "%~f0" run
+    exit /b
+)
 
 REM ========================================
 REM INSTALLATION DE PYTHON
