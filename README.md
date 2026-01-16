@@ -21,10 +21,12 @@ Le meilleur? **Tes scores se synchronisent automatiquement en ligne** - pas beso
 
 ## ⚡ Lancement Rapide
 
+Télécharger le zip complet et l'extraire à l'endroit souhaité.
+
 ### 1️⃣ **Installation (en deux fois)**
 
 #### 🪟 Windows
-Double-clic sur: **`SETUP.bat`**, une fois pour Python, une deuxieme pour les dépendances.
+Double-clic sur: **`SETUP.bat`**, une fois pour Python, une deuxième pour les dépendances.
 
 #### 🍎 Mac / 🐧 Linux
 ```bash

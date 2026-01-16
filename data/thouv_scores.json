@@ -2140,5 +2140,23 @@
         "nom": "FuckBastien",
         "score_total": 20,
         "version": "Graphique (DIFFICILE)"
+    },
+    {
+        "nom": "Paul",
+        "score_total": 18,
+        "distance": 18,
+        "bedos": 0,
+        "version": "Graphique (NORMALE)",
+        "date": "17/01/2026 00:47",
+        "difficulte": "NORMALE"
+    },
+    {
+        "nom": "Paul",
+        "score_total": 534,
+        "distance": 384,
+        "bedos": 3,
+        "version": "Graphique (NORMALE)",
+        "date": "17/01/2026 00:48",
+        "difficulte": "NORMALE"
     }
 ]
