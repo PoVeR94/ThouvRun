@@ -1,6 +1,7 @@
 @echo off
 REM ========================================
 REM SETUP Thouv'Run - Installation automatique
+REM Windows
 REM ========================================
 
 cls
@@ -9,29 +10,71 @@ echo ========================================
 echo   SETUP - Thouv'Run Multi-Joueur
 echo ========================================
 echo.
+echo [*] Systeme detecte: Windows
+echo.
 
-REM Verifier Python
+REM ========================================
+REM INSTALLATION DE PYTHON
+REM ========================================
 echo [*] Verification de Python...
 python --version >nul 2>&1
 
 if errorlevel 1 (
     echo.
-    echo [ERREUR] Python n'est pas installe ou pas dans le PATH
+    echo [!] Python non installe, installation automatique...
     echo.
-    echo SOLUTIONS:
-    echo 1. Telecharge Python 3.12: https://www.python.org/downloads/
-    echo 2. IMPORTANT: Coche "Add Python to PATH" durant l'installation
-    echo 3. Une fois termine, ferme ce script et relance-le
+    
+    REM Telecharger Python avec PowerShell
+    echo [*] Telechargement de Python 3.12...
+    powershell -Command "& {[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -Uri 'https://www.python.org/ftp/python/3.12.9/python-3.12.9-amd64.exe' -OutFile '%TEMP%\python-installer.exe'}"
+    
+    if not exist "%TEMP%\python-installer.exe" (
+        echo.
+        echo [ERREUR] Impossible de telecharger Python
+        echo.
+        echo Telecharge manuellement: https://www.python.org/downloads/
+        echo IMPORTANT: Coche "Add Python to PATH" durant l'installation
+        echo.
+        pause
+        exit /b 1
+    )
+    
+    echo [*] Installation de Python 3.12 (avec PATH)...
+    "%TEMP%\python-installer.exe" /quiet InstallAllUsers=0 PrependPath=1 Include_pip=1
+    
+    if errorlevel 1 (
+        echo.
+        echo [!] Installation silencieuse echouee, lancement manuel...
+        echo.
+        echo IMPORTANT: Coche "Add Python to PATH" en bas de la fenetre!
+        echo.
+        "%TEMP%\python-installer.exe"
+    )
+    
+    REM Nettoyer
+    del "%TEMP%\python-installer.exe" 2>nul
+    
+    echo.
+    echo [OK] Python installe!
+    echo.
+    echo ========================================
+    echo REDEMARRAGE NECESSAIRE
+    echo ========================================
+    echo.
+    echo Ferme cette fenetre et relance SETUP.bat
+    echo pour terminer l'installation.
     echo.
     pause
-    exit /b 1
+    exit /b 0
 )
 
 echo [OK] Python trouve!
 python --version
 echo.
 
-REM Verifier pip
+REM ========================================
+REM VERIFICATION DE PIP
+REM ========================================
 echo [*] Verification de pip...
 python -m pip --version >nul 2>&1
 if errorlevel 1 (
@@ -55,7 +98,7 @@ if errorlevel 1 (
     echo [OK] pip reinstalle!
     echo.
 )
-echo [OK] pip disponible (via python -m pip)
+echo [OK] pip disponible
 echo.
 
 REM ========================================
@@ -69,25 +112,35 @@ echo     - flask-cors (API)
 echo     - requests (sync scores)
 echo.
 
-REM Utiliser un mirror HTTP pour eviter les problemes SSL
-echo [*] Utilisation d'un mirror PyPI (HTTP pour eviter SSL)...
-python -m pip install --index-url https://pypi.tsinghua.edu.cn/simple --trusted-host pypi.tsinghua.edu.cn --no-cache-dir -r requirements-dev.txt
+REM Mettre a jour pip d'abord
+python -m pip install --upgrade pip >nul 2>&1
+
+REM Installer les dependances (avec trusted-host pour eviter SSL)
+python -m pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org -r requirements-dev.txt
 
 if errorlevel 1 (
     echo.
-    echo [ERREUR] Impossible d'installer les dependances
+    echo [!] Premiere tentative echouee, essai avec mirror alternatif...
     echo.
-    echo SOLUTION PROBABLE:
-    echo - Verifiez que l'horloge Windows est correcte
-    echo - Clic-droit horloge Windows en bas a droite
-    echo - Si l'heure est decalee, Windows la corrigera apres redemarrage
-    echo.
-    echo Autre probleme possible:
-    echo - Certificats Windows corrompus ^(rare^)
-    echo - Proxy d'entreprise interceptant le trafic
-    echo.
-    pause
-    exit /b 1
+    
+    REM Tentative 2: Mirror Tsinghua
+    python -m pip install --index-url https://pypi.tsinghua.edu.cn/simple --trusted-host pypi.tsinghua.edu.cn -r requirements-dev.txt
+    
+    if errorlevel 1 (
+        echo.
+        echo [ERREUR] Impossible d'installer les dependances
+        echo.
+        echo Solutions:
+        echo 1. Verifiez votre connexion internet
+        echo 2. Desactivez temporairement l'antivirus
+        echo 3. Verifiez l'heure du PC ^(clic-droit horloge^)
+        echo.
+        echo Installation manuelle dans PowerShell:
+        echo   python -m pip install pygame windows-curses flask flask-cors requests
+        echo.
+        pause
+        exit /b 1
+    )
 )
 
 echo [OK] Dependances installees!
