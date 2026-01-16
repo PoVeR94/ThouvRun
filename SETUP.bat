@@ -17,9 +17,13 @@ REM ========================================
 REM INSTALLATION DE PYTHON
 REM ========================================
 echo [*] Verification de Python...
-python --version >nul 2>&1
+python --version
+echo.
 
 if errorlevel 1 (
+    echo [!] Python non trouve, telechargement...
+    echo.
+    pause
     echo.
     echo [!] Python non installe, installation automatique...
     echo.
@@ -68,12 +72,18 @@ if errorlevel 1 (
 echo [OK] Python trouve!
 python --version
 echo.
+echo Appuie sur une touche pour continuer...
+pause
 
 REM ========================================
 REM VERIFICATION DE PIP
 REM ========================================
 echo [*] Verification de pip...
-python -m pip --version >nul 2>&1
+python -m pip --version
+echo.
+echo Appuie sur une touche pour continuer...
+pause
+
 if errorlevel 1 (
     echo.
     echo [!] pip non detecte, reinstallation automatique...
