@@ -21,10 +21,10 @@ Le meilleur? **Tes scores se synchronisent automatiquement en ligne** - pas beso
 
 ## ⚡ Lancement Rapide
 
-### 1️⃣ **Installation (une seule fois)**
+### 1️⃣ **Installation (en deux fois)**
 
 #### 🪟 Windows
-Double-clic sur: **`SETUP.bat`**
+Double-clic sur: **`SETUP.bat`**, une fois pour Python, une deuxieme pour les dépendances.
 
 #### 🍎 Mac / 🐧 Linux
 ```bash

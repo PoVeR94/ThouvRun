@@ -1923,7 +1923,7 @@
         "distance": 742,
         "nom": "Marie",
         "score_total": 1142,
-        "version": "Graphique (NORMALE)"
+        "version": "Graphique"
     },
     {
         "bedos": 1,
@@ -1932,7 +1932,7 @@
         "distance": 366,
         "nom": "Marie",
         "score_total": 416,
-        "version": "Graphique (NORMALE)"
+        "version": "Graphique"
     },
     {
         "bedos": 0,
@@ -1941,7 +1941,7 @@
         "distance": 26,
         "nom": "Marie",
         "score_total": 40,
-        "version": "Graphique (DIFFICILE)"
+        "version": "Graphique"
     },
     {
         "bedos": 0,
@@ -1950,7 +1950,7 @@
         "distance": 37,
         "nom": "Marie",
         "score_total": 37,
-        "version": "Graphique (NORMALE)"
+        "version": "Graphique"
     },
     {
         "bedos": 0,
@@ -1959,7 +1959,7 @@
         "distance": 26,
         "nom": "Marie",
         "score_total": 26,
-        "version": "Graphique (NORMALE)"
+        "version": "Graphique"
     },
     {
         "bedos": 0,
@@ -1968,7 +1968,7 @@
         "distance": 26,
         "nom": "Marie",
         "score_total": 26,
-        "version": "Graphique (NORMALE)"
+        "version": "Graphique"
     },
     {
         "bedos": 0,
@@ -1977,7 +1977,7 @@
         "distance": 18,
         "nom": "Marie",
         "score_total": 18,
-        "version": "Graphique (NORMALE)"
+        "version": "Graphique"
     },
     {
         "bedos": 0,
@@ -1986,6 +1986,159 @@
         "distance": 17,
         "nom": "Marie",
         "score_total": 17,
+        "version": "Graphique"
+    },
+    {
+        "bedos": 2,
+        "date": "16/01/2026 22:57",
+        "difficulte": "NORMALE",
+        "distance": 315,
+        "nom": "FuckBastien",
+        "score_total": 415,
         "version": "Graphique (NORMALE)"
+    },
+    {
+        "bedos": 1,
+        "date": "16/01/2026 22:58",
+        "difficulte": "NORMALE",
+        "distance": 235,
+        "nom": "FuckBastien",
+        "score_total": 285,
+        "version": "Graphique (NORMALE)"
+    },
+    {
+        "bedos": 2,
+        "date": "16/01/2026 22:59",
+        "difficulte": "NORMALE",
+        "distance": 34,
+        "nom": "FuckBastien",
+        "score_total": 134,
+        "version": "Graphique (NORMALE)"
+    },
+    {
+        "bedos": 1,
+        "date": "16/01/2026 22:58",
+        "difficulte": "DIFFICILE",
+        "distance": 31,
+        "nom": "FuckBastien",
+        "score_total": 97,
+        "version": "Graphique (DIFFICILE)"
+    },
+    {
+        "bedos": 1,
+        "date": "16/01/2026 22:55",
+        "difficulte": "DIFFICILE",
+        "distance": 27,
+        "nom": "FuckBastien",
+        "score_total": 91,
+        "version": "Graphique (DIFFICILE)"
+    },
+    {
+        "bedos": 0,
+        "date": "16/01/2026 22:59",
+        "difficulte": "DIFFICILE",
+        "distance": 53,
+        "nom": "FuckBastien",
+        "score_total": 80,
+        "version": "Graphique (DIFFICILE)"
+    },
+    {
+        "bedos": 0,
+        "date": "16/01/2026 22:56",
+        "difficulte": "DIFFICILE",
+        "distance": 42,
+        "nom": "FuckBastien",
+        "score_total": 64,
+        "version": "Graphique (DIFFICILE)"
+    },
+    {
+        "bedos": 0,
+        "date": "16/01/2026 23:00",
+        "difficulte": "NORMALE",
+        "distance": 48,
+        "nom": "FuckBastien",
+        "score_total": 48,
+        "version": "Graphique (NORMALE)"
+    },
+    {
+        "bedos": 0,
+        "date": "16/01/2026 22:54",
+        "difficulte": "DIFFICILE",
+        "distance": 28,
+        "nom": "FuckBastien",
+        "score_total": 43,
+        "version": "Graphique (DIFFICILE)"
+    },
+    {
+        "bedos": 0,
+        "date": "16/01/2026 22:56",
+        "difficulte": "NORMALE",
+        "distance": 36,
+        "nom": "FuckBastien",
+        "score_total": 36,
+        "version": "Graphique (NORMALE)"
+    },
+    {
+        "bedos": 0,
+        "date": "16/01/2026 22:55",
+        "difficulte": "DIFFICILE",
+        "distance": 20,
+        "nom": "FuckBastien",
+        "score_total": 30,
+        "version": "Graphique (DIFFICILE)"
+    },
+    {
+        "bedos": 0,
+        "date": "16/01/2026 22:55",
+        "difficulte": "DIFFICILE",
+        "distance": 19,
+        "nom": "FuckBastien",
+        "score_total": 29,
+        "version": "Graphique (DIFFICILE)"
+    },
+    {
+        "bedos": 0,
+        "date": "16/01/2026 22:56",
+        "difficulte": "DIFFICILE",
+        "distance": 17,
+        "nom": "FuckBastien",
+        "score_total": 26,
+        "version": "Graphique (DIFFICILE)"
+    },
+    {
+        "bedos": 0,
+        "date": "16/01/2026 22:56",
+        "difficulte": "DIFFICILE",
+        "distance": 17,
+        "nom": "FuckBastien",
+        "score_total": 25,
+        "version": "Graphique (DIFFICILE)"
+    },
+    {
+        "bedos": 0,
+        "date": "16/01/2026 22:59",
+        "difficulte": "DIFFICILE",
+        "distance": 14,
+        "nom": "FuckBastien",
+        "score_total": 21,
+        "version": "Graphique (DIFFICILE)"
+    },
+    {
+        "bedos": 0,
+        "date": "16/01/2026 22:59",
+        "difficulte": "DIFFICILE",
+        "distance": 14,
+        "nom": "FuckBastien",
+        "score_total": 21,
+        "version": "Graphique (DIFFICILE)"
+    },
+    {
+        "bedos": 0,
+        "date": "16/01/2026 22:54",
+        "difficulte": "DIFFICILE",
+        "distance": 13,
+        "nom": "FuckBastien",
+        "score_total": 20,
+        "version": "Graphique (DIFFICILE)"
     }
 ]
