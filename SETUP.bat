@@ -8,6 +8,8 @@ echo ========================================
 echo   SETUP - Thouv'Run Multi-Joueur
 echo ========================================
 echo.
+echo ATTENTION : Ce jeu fonctionne exclusivement avec Python 3.12.x, si vous avez une autre version, merci de la desinstaller avant de continuer.
+echo.
 
 REM ========================================
 REM ETAPE 1: VERIFIER PYTHON
@@ -36,7 +38,7 @@ if not exist "%TEMP%\python-installer.exe" (
     echo Telecharge Python manuellement:
     echo https://www.python.org/ftp/python/3.12.9/python-3.12.9-amd64.exe
     echo.
-    echo IMPORTANT: Coche "Add Python to PATH" en bas!
+    echo IMPORTANT: Coche "Add Python to PATH" et "Installer en tant qu'administrateur" en bas!
     echo.
     pause
     exit /b 1
@@ -47,7 +49,7 @@ echo.
 echo [*] Installation de Python...
 echo.
 echo ========================================
-echo IMPORTANT: COCHE "Add Python to PATH"
+echo IMPORTANT: COCHE "Add Python to PATH" et "Installer en tant qu'administrateur"
 echo en bas de la fenetre d'installation!
 echo ========================================
 echo.
@@ -63,6 +65,9 @@ echo.
 echo ========================================
 echo FERME cette fenetre et RELANCE SETUP.bat
 echo ========================================
+echo.
+echo IMPORTANT: Si le setup ne trouve pas Python apres relance, restart ton PC puis relance SETUP.bat
+echo si ca ne marche toujours pas, installe Python 3.12.x manuellement.
 echo.
 pause
 exit /b 0
